@@ -30,7 +30,6 @@ namespace SPO2.Enigme1
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                Debug.Log("collision enter");
                 playersCount++;
                 CheckCondition();
             }
@@ -40,7 +39,6 @@ namespace SPO2.Enigme1
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                Debug.Log("collision exit");
                 playersCount--;
                 CheckCondition();
             }
