@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,7 +43,8 @@ namespace SPO2.Managers
 
         private void Start()
         {
-            player = Instantiate(GameData.Player.characterPrefab);
+            if(PlayerManager.localPlayer == null)
+                player = PhotonNetwork.Instantiate(GameData.Player.characterPrefab.name, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
         }
 
         
