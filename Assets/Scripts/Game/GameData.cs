@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SPO2
 {
-    [CreateAssetMenu(fileName = "GameData", menuName = "SPO2/GameData")]
+    //[CreateAssetMenu(fileName = "GameData", menuName = "SPO2/GameData")]
     public class GameData : ScriptableObject
     {
         [System.Serializable]

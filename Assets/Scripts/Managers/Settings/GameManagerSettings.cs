@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace SPO2.Managers
 {
+    //[CreateAssetMenu(fileName = "GameManagerSettings", menuName = "SPO2/GameManagerSettings")]
     public class GameManagerSettings : ScriptableObject
     {
         [System.Serializable]

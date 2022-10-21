@@ -9,16 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f39dd0f0702e9448fac2430cd8758ce9, type: 3}
+  m_Script: {fileID: 11500000, guid: 6fce691a70adbe648b932636c682ace6, type: 3}
   m_Name: GameManagerSettings
   m_EditorClassIdentifier: 
-  buildSettings: {fileID: 11400000, guid: c6fcb9c83b4964706869a9a8f9040350, type: 2}
-  gameData: {fileID: 11400000, guid: dee0557a7632f4210a1a15a161628d5a, type: 2}
-  mergeableDatabase: {fileID: 11400000, guid: f3b3cd968d74e4c97960061cb32b0d51, type: 2}
-  characterDatabase: {fileID: 11400000, guid: 7203d0e63f0484c4b8df544c0da13522, type: 2}
-  market: {fileID: 11400000, guid: 23a3759df75f00f48bc0b2e7a5cc5bbc, type: 2}
-  customizationDatabase: {fileID: 11400000, guid: a1648ab5860f18e47865726647e108d7,
-    type: 2}
+  gameData: {fileID: 11400000, guid: 4ef843a123faabf49a9d8fdb8b514d7c, type: 2}
   roomSettings:
-    roomSize: 8
+    roomSize: 1
     onlineMode: 0

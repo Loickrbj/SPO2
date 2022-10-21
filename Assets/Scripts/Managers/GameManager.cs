@@ -4,14 +4,36 @@ using UnityEngine;
 
 namespace SPO2.Managers
 {
-    public class GameManager : SingleBehaviour<GameManager, GameManagerSettings>
+    public class GameManager : MonoBehaviour
     {
-        public static GameData GameData { get; private set; }
+        #region Properties 
 
-        private GameObject player; 
-        public override void Awake()
+        public static GameManager instance => m_instance;
+        public static GameData GameData { get; private set; }
+        public static GameObject Player => player;
+
+        #endregion
+
+        #region Attributes
+        protected GameManagerSettings settings;
+
+        protected static GameManager m_instance;
+
+        protected static GameObject player;
+
+
+        #endregion
+
+        public void Awake()
         {
-            base.Awake();
+            if (m_instance == null)
+            {
+                m_instance = this;
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
 
             settings = (GameManagerSettings)Resources.Load("ManagersSettings/GameManagerSettings", typeof(GameManagerSettings));
 

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: GameData
   m_EditorClassIdentifier: 
   Player:
-    characterPrefab: {fileID: 0}
+    characterPrefab: {fileID: 9061313145334198261, guid: f0a05c16b0618934c82dba669908df66, type: 3}
