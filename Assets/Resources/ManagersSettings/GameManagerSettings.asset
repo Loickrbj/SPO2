@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f39dd0f0702e9448fac2430cd8758ce9, type: 3}
+  m_Name: GameManagerSettings
+  m_EditorClassIdentifier: 
+  buildSettings: {fileID: 11400000, guid: c6fcb9c83b4964706869a9a8f9040350, type: 2}
+  gameData: {fileID: 11400000, guid: dee0557a7632f4210a1a15a161628d5a, type: 2}
+  mergeableDatabase: {fileID: 11400000, guid: f3b3cd968d74e4c97960061cb32b0d51, type: 2}
+  characterDatabase: {fileID: 11400000, guid: 7203d0e63f0484c4b8df544c0da13522, type: 2}
+  market: {fileID: 11400000, guid: 23a3759df75f00f48bc0b2e7a5cc5bbc, type: 2}
+  customizationDatabase: {fileID: 11400000, guid: a1648ab5860f18e47865726647e108d7,
+    type: 2}
+  roomSettings:
+    roomSize: 8
+    onlineMode: 0
