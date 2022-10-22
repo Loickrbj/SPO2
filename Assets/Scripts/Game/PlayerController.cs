@@ -1,10 +1,11 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace SPO2.Player
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviourPun
     {
         [SerializeField] private CharacterController characterController;
         [SerializeField] private float speed = 12f;
@@ -18,8 +19,19 @@ namespace SPO2.Player
 
         private bool isGrounded;
 
+        void Start()
+        {
+            if (!photonView.IsMine)
+            {
+                this.enabled = false;
+                return;
+            }
+        }
+
         void Update()
         {
+            if (!photonView.IsMine) return;
+
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
             if (isGrounded && velocity.y < 0f)

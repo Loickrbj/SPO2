@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,7 +7,7 @@ using UnityEngine;
 
 namespace SPO2.Player
 {
-    public class PlayerObjectPicker : MonoBehaviour
+    public class PlayerObjectPicker : MonoBehaviourPun
     {
 
         [SerializeField]
@@ -27,12 +28,19 @@ namespace SPO2.Player
 
         void Start()
         {
+            if (!photonView.IsMine)
+            {
+                this.enabled = false;
+                return;
+            }
             objectLayer = LayerMask.GetMask("Grabbables");
             objectGrabbed = false;
         }
 
         void Update()
         {
+            if (!photonView.IsMine) return;
+
             Debug.DrawRay(playerCamera.transform.position, playerCamera.transform.forward * grabDistance);
             if(Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out RaycastHit hitInfo, grabDistance, objectLayer)){
                 gameObjectPointed = hitInfo.collider.gameObject;

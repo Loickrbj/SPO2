@@ -1,10 +1,11 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace SPO2.Player
 {
-    public class CameraController : MonoBehaviour
+    public class CameraController : MonoBehaviourPun
     {
         [SerializeField] private float mouseSensitivity = 100;
         [SerializeField] private Transform playerTransform;
@@ -12,11 +13,18 @@ namespace SPO2.Player
 
         private void Start()
         {
+            if (!photonView.IsMine)
+            {
+                gameObject.SetActive(false);
+                return;
+            }
             Cursor.lockState = CursorLockMode.Locked;
         }
 
         private void LateUpdate()
         {
+            if (!photonView.IsMine) return;
+
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
             float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
