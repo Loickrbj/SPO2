@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class LauncherController : MonoBehaviourPunCallbacks
 {
+    public bool autoConnect = true;
+    [Space(10)]
     public TextMeshProUGUI textInfo;
     public byte maxPlayerPerRoom = 5;
     public string gameVersion = "1.0";
@@ -21,7 +23,8 @@ public class LauncherController : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        Connect();
+        if (autoConnect)
+            Connect();
     }
 
     private void Update()
@@ -101,5 +104,15 @@ public class LauncherController : MonoBehaviourPunCallbacks
         {
             Debug.LogFormat("OnPlayerLeftRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient); // called before OnPlayerLeftRoom
         }
+    }
+
+    public void ConnectUser()
+    {
+        Connect();
+    }
+
+    public void ChangePseudo(TMPro.TMP_InputField input)
+    {
+        pseudo = input.text;
     }
 }
