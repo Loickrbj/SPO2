@@ -127,7 +127,7 @@ public class GrabIt : MonoBehaviourPun {
 					if(rb != null){							
 						Set( rb , hitInfo.distance);						
 						m_grabbing = true;
-						photonView.TransferOwnership(PhotonNetwork.LocalPlayer.ActorNumber);
+                        hitInfo.collider.GetComponent<PhotonView>().TransferOwnership(PhotonNetwork.LocalPlayer.ActorNumber);
 					}
 				}
 			}
