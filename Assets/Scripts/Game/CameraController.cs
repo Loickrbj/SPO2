@@ -15,7 +15,8 @@ namespace SPO2.Player
         {
             if (!photonView.IsMine)
             {
-                gameObject.SetActive(false);
+                GetComponent<Camera>().enabled = false;
+                //gameObject.SetActive(false);
                 return;
             }
             Cursor.lockState = CursorLockMode.Locked;
