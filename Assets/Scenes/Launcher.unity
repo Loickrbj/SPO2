@@ -258,6 +258,7 @@ MonoBehaviour:
   textInfo: {fileID: 705763839}
   maxPlayerPerRoom: 5
   gameVersion: 1.0
+  pseudo: Coquinou
   isConnecting: 0
 --- !u!4 &47751527
 Transform:
