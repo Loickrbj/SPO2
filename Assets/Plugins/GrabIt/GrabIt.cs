@@ -195,7 +195,7 @@ namespace Lightbug.GrabIt
 
 			if (!photonView.IsMine)
 			{
-				photonView.RequestOwnership();
+				photonView.TransferOwnership(PhotonNetwork.LocalPlayer);
 			}
 
 			if (m_isHingeJoint)
