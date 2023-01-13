@@ -235,7 +235,7 @@ namespace Lightbug.GrabIt
 
 		void FixedUpdate()
 		{
-			if (!m_grabbing && !photonView.IsMine)
+			if (!m_grabbing)
 				return;
 
 			if (!m_isHingeJoint)
