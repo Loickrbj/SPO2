@@ -134,10 +134,11 @@ GameObject:
   - component: {fileID: 113047339}
   - component: {fileID: 113047338}
   - component: {fileID: 113047337}
+  - component: {fileID: 113047340}
   - component: {fileID: 113047336}
   - component: {fileID: 113047335}
   - component: {fileID: 113047334}
-  - component: {fileID: 113047340}
+  - component: {fileID: 113047341}
   m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
@@ -275,9 +276,26 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 113047335}
+  - {fileID: 113047341}
   sceneViewId: 1
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &113047341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113047333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 0
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 3
 --- !u!1 &351185569
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,10 +351,11 @@ GameObject:
   - component: {fileID: 614398440}
   - component: {fileID: 614398439}
   - component: {fileID: 614398438}
+  - component: {fileID: 614398441}
   - component: {fileID: 614398437}
   - component: {fileID: 614398436}
   - component: {fileID: 614398435}
-  - component: {fileID: 614398441}
+  - component: {fileID: 614398442}
   m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
@@ -479,6 +498,22 @@ MonoBehaviour:
   sceneViewId: 2
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &614398442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614398434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 0
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 3
 --- !u!1 &732175468
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,10 +525,11 @@ GameObject:
   - component: {fileID: 732175474}
   - component: {fileID: 732175473}
   - component: {fileID: 732175472}
+  - component: {fileID: 732175475}
   - component: {fileID: 732175471}
   - component: {fileID: 732175470}
   - component: {fileID: 732175469}
-  - component: {fileID: 732175475}
+  - component: {fileID: 732175476}
   m_Layer: 7
   m_Name: Cylinder (1)
   m_TagString: Untagged
@@ -632,10 +668,25 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 732175470}
-  - {fileID: 0}
   sceneViewId: 6
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &732175476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732175468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 0
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 3
 --- !u!1 &793953889
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,10 +698,11 @@ GameObject:
   - component: {fileID: 793953895}
   - component: {fileID: 793953894}
   - component: {fileID: 793953893}
+  - component: {fileID: 793953896}
   - component: {fileID: 793953892}
   - component: {fileID: 793953891}
   - component: {fileID: 793953890}
-  - component: {fileID: 793953896}
+  - component: {fileID: 793953897}
   m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
@@ -792,6 +844,22 @@ MonoBehaviour:
   sceneViewId: 5
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &793953897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793953889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 0
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 3
 --- !u!1 &835452683
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,10 +965,11 @@ GameObject:
   - component: {fileID: 1167952723}
   - component: {fileID: 1167952722}
   - component: {fileID: 1167952721}
+  - component: {fileID: 1167952724}
   - component: {fileID: 1167952720}
   - component: {fileID: 1167952719}
   - component: {fileID: 1167952718}
-  - component: {fileID: 1167952724}
+  - component: {fileID: 1167952725}
   m_Layer: 7
   m_Name: Sphere (1)
   m_TagString: Untagged
@@ -1042,6 +1111,22 @@ MonoBehaviour:
   sceneViewId: 4
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &1167952725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167952717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 0
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 3
 --- !u!1 &1192469913
 GameObject:
   m_ObjectHideFlags: 0
@@ -1182,10 +1267,11 @@ GameObject:
   - component: {fileID: 1339547858}
   - component: {fileID: 1339547857}
   - component: {fileID: 1339547856}
+  - component: {fileID: 1339547859}
   - component: {fileID: 1339547855}
   - component: {fileID: 1339547854}
   - component: {fileID: 1339547853}
-  - component: {fileID: 1339547859}
+  - component: {fileID: 1339547860}
   m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -1327,3 +1413,19 @@ MonoBehaviour:
   sceneViewId: 3
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &1339547860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339547852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 0
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 3
