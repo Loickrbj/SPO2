@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Photon.Pun;
+using UnityEngine;
 
 namespace Lightbug.GrabIt
 {
@@ -13,7 +14,7 @@ public class GrabObjectProperties{
 
 }
 
-public class GrabIt : MonoBehaviour {
+public class GrabIt : MonoBehaviourPun {
 
 	[Header("Input")]
 	[SerializeField] KeyCode m_rotatePitchPosKey = KeyCode.I;
@@ -126,6 +127,7 @@ public class GrabIt : MonoBehaviour {
 					if(rb != null){							
 						Set( rb , hitInfo.distance);						
 						m_grabbing = true;
+						photonView.TransferOwnership(PhotonNetwork.LocalPlayer.ActorNumber);
 					}
 				}
 			}
