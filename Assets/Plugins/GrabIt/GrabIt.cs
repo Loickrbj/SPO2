@@ -82,6 +82,11 @@ namespace Lightbug.GrabIt
 
 		void Awake()
 		{
+			if (!photonView.IsMine)
+			{
+				return;
+			}
+
 			m_transform = transform;
 			m_hitPointObject = new GameObject("Point");
 
@@ -91,6 +96,11 @@ namespace Lightbug.GrabIt
 
 		void Update()
 		{
+			if (!photonView.IsMine)
+			{
+				return;
+			}
+
 			if (m_grabbing)
 			{
 
@@ -149,6 +159,12 @@ namespace Lightbug.GrabIt
 			m_targetRB = target;
 			m_isHingeJoint = target.GetComponent<HingeJoint>() != null;
 
+			if (photonView.IsMine)
+			{
+				Debug.Log("Change OwbnerShip");
+				m_targetRB.GetComponent<PhotonView>().TransferOwnership(PhotonNetwork.LocalPlayer);
+			}
+
 			//Rigidbody default properties	
 			m_defaultProperties.m_useGravity = m_targetRB.useGravity;
 			m_defaultProperties.m_drag = m_targetRB.drag;
@@ -193,12 +209,7 @@ namespace Lightbug.GrabIt
 			Vector3 hitPointPos = m_hitPointObject.transform.position;
 			Vector3 dif = m_targetPos - hitPointPos;
 
-			if (!photonView.IsMine)
-			{
-				photonView.TransferOwnership(PhotonNetwork.LocalPlayer);
-			}
-
-			if (m_isHingeJoint)
+            if (m_isHingeJoint)
 				m_targetRB.AddForceAtPosition(m_grabSpeed * dif * 100, hitPointPos, ForceMode.Force);
 			else
 				m_targetRB.velocity = m_grabSpeed * dif;
@@ -235,6 +246,11 @@ namespace Lightbug.GrabIt
 
 		void FixedUpdate()
 		{
+			if (!photonView.IsMine)
+			{
+				return;
+			}
+
 			if (!m_grabbing)
 				return;
 
@@ -252,7 +268,5 @@ namespace Lightbug.GrabIt
 			}
 
 		}
-
 	}
-
 }

@@ -32,6 +32,8 @@ namespace Photon.Pun
         [HideInInspector]
         public bool m_SynchronizeAngularVelocity = false;
 
+        public bool m_SynchronizeGravity = false;
+
         [HideInInspector]
         public bool m_TeleportEnabled = false;
         [HideInInspector]
@@ -70,6 +72,11 @@ namespace Photon.Pun
                 {
                     stream.SendNext(this.m_Body.angularVelocity);
                 }
+
+                if (this.m_SynchronizeGravity)
+                {
+                    stream.SendNext(this.m_Body.useGravity);
+                }
             }
             else
             {
@@ -84,7 +91,7 @@ namespace Photon.Pun
                     }
                 }
                 
-                if (this.m_SynchronizeVelocity || this.m_SynchronizeAngularVelocity)
+                if (this.m_SynchronizeVelocity || this.m_SynchronizeAngularVelocity || this.m_SynchronizeGravity)
                 {
                     float lag = Mathf.Abs((float)(PhotonNetwork.Time - info.SentServerTime));
 
@@ -104,6 +111,11 @@ namespace Photon.Pun
                         this.m_NetworkRotation = Quaternion.Euler(this.m_Body.angularVelocity * lag) * this.m_NetworkRotation;
 
                         this.m_Angle = Quaternion.Angle(this.m_Body.rotation, this.m_NetworkRotation);
+                    }
+
+                    if (this.m_SynchronizeGravity)
+                    {
+                        this.m_Body.useGravity = (bool)stream.ReceiveNext();
                     }
                 }
             }

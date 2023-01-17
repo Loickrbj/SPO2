@@ -136,7 +136,6 @@ GameObject:
   - component: {fileID: 113047337}
   - component: {fileID: 113047340}
   - component: {fileID: 113047336}
-  - component: {fileID: 113047335}
   - component: {fileID: 113047334}
   - component: {fileID: 113047341}
   m_Layer: 7
@@ -162,22 +161,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &113047335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 113047333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
 --- !u!65 &113047336
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -272,10 +255,9 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 3
-  OwnershipTransfer: 0
+  OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 113047335}
   - {fileID: 113047341}
   sceneViewId: 1
   InstantiationId: 0
@@ -293,7 +275,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SynchronizeVelocity: 1
-  m_SynchronizeAngularVelocity: 0
+  m_SynchronizeAngularVelocity: 1
+  m_SynchronizeGravity: 1
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
 --- !u!1 &351185569
@@ -353,7 +336,6 @@ GameObject:
   - component: {fileID: 614398438}
   - component: {fileID: 614398441}
   - component: {fileID: 614398437}
-  - component: {fileID: 614398436}
   - component: {fileID: 614398435}
   - component: {fileID: 614398442}
   m_Layer: 7
@@ -379,22 +361,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &614398436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 614398434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
 --- !u!136 &614398437
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -490,10 +456,10 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 3
-  OwnershipTransfer: 0
+  OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 614398436}
+  - {fileID: 0}
   - {fileID: 614398442}
   sceneViewId: 2
   InstantiationId: 0
@@ -511,7 +477,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SynchronizeVelocity: 1
-  m_SynchronizeAngularVelocity: 0
+  m_SynchronizeAngularVelocity: 1
+  m_SynchronizeGravity: 1
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
 --- !u!1 &732175468
@@ -527,7 +494,6 @@ GameObject:
   - component: {fileID: 732175472}
   - component: {fileID: 732175475}
   - component: {fileID: 732175471}
-  - component: {fileID: 732175470}
   - component: {fileID: 732175469}
   - component: {fileID: 732175476}
   m_Layer: 7
@@ -553,22 +519,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &732175470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 732175468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
 --- !u!136 &732175471
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -664,10 +614,10 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 3
-  OwnershipTransfer: 0
+  OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 732175470}
+  - {fileID: 0}
   - {fileID: 732175476}
   sceneViewId: 6
   InstantiationId: 0
@@ -685,7 +635,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SynchronizeVelocity: 1
-  m_SynchronizeAngularVelocity: 0
+  m_SynchronizeAngularVelocity: 1
+  m_SynchronizeGravity: 1
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
 --- !u!1 &793953889
@@ -701,7 +652,6 @@ GameObject:
   - component: {fileID: 793953893}
   - component: {fileID: 793953896}
   - component: {fileID: 793953892}
-  - component: {fileID: 793953891}
   - component: {fileID: 793953890}
   - component: {fileID: 793953897}
   m_Layer: 7
@@ -727,22 +677,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &793953891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793953889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
 --- !u!135 &793953892
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -837,10 +771,10 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 3
-  OwnershipTransfer: 0
+  OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 793953891}
+  - {fileID: 0}
   - {fileID: 793953897}
   sceneViewId: 5
   InstantiationId: 0
@@ -858,7 +792,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SynchronizeVelocity: 1
-  m_SynchronizeAngularVelocity: 0
+  m_SynchronizeAngularVelocity: 1
+  m_SynchronizeGravity: 1
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
 --- !u!1 &835452683
@@ -968,7 +903,6 @@ GameObject:
   - component: {fileID: 1167952721}
   - component: {fileID: 1167952724}
   - component: {fileID: 1167952720}
-  - component: {fileID: 1167952719}
   - component: {fileID: 1167952718}
   - component: {fileID: 1167952725}
   m_Layer: 7
@@ -994,22 +928,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1167952719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1167952717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
 --- !u!135 &1167952720
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1104,10 +1022,10 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 3
-  OwnershipTransfer: 0
+  OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 1167952719}
+  - {fileID: 0}
   - {fileID: 1167952725}
   sceneViewId: 4
   InstantiationId: 0
@@ -1125,7 +1043,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SynchronizeVelocity: 1
-  m_SynchronizeAngularVelocity: 0
+  m_SynchronizeAngularVelocity: 1
+  m_SynchronizeGravity: 1
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
 --- !u!1 &1192469913
@@ -1270,7 +1189,6 @@ GameObject:
   - component: {fileID: 1339547856}
   - component: {fileID: 1339547859}
   - component: {fileID: 1339547855}
-  - component: {fileID: 1339547854}
   - component: {fileID: 1339547853}
   - component: {fileID: 1339547860}
   m_Layer: 7
@@ -1296,22 +1214,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1339547854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1339547852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
 --- !u!65 &1339547855
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1406,10 +1308,10 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 3
-  OwnershipTransfer: 0
+  OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 1339547854}
+  - {fileID: 0}
   - {fileID: 1339547860}
   sceneViewId: 3
   InstantiationId: 0
@@ -1427,6 +1329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SynchronizeVelocity: 1
-  m_SynchronizeAngularVelocity: 0
+  m_SynchronizeAngularVelocity: 1
+  m_SynchronizeGravity: 1
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
