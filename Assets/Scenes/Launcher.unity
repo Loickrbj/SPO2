@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 75d8c1336bf972d42aa7f33348350a22, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 47751527}
   - component: {fileID: 47751526}
   m_Layer: 0
-  m_Name: Launcher
+  m_Name: LauncherController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -258,13 +258,11 @@ MonoBehaviour:
   textInfo: {fileID: 705763839}
   maxPlayerPerRoom: 5
   gameVersion: 1.1
-  pseudo: Coquinou
+  pseudo: Likarios
   isConnecting: 0
   scenes:
   - sName: Launcher
   - sName: Puzzle1
-  - sName: ScenePickables
-  - sName: TestMultiplayer
 --- !u!4 &47751527
 Transform:
   m_ObjectHideFlags: 0
@@ -278,7 +276,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &98060015
 GameObject:
@@ -616,7 +614,7 @@ GameObject:
   - component: {fileID: 741312287}
   - component: {fileID: 741312286}
   m_Layer: 5
-  m_Name: Panel Connection Input
+  m_Name: PanelConnectionInput
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -932,7 +930,7 @@ GameObject:
   - component: {fileID: 930723778}
   - component: {fileID: 930723780}
   m_Layer: 5
-  m_Name: Panel Connection Statut
+  m_Name: PanelConnectionStatut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1022,7 +1020,7 @@ GameObject:
   - component: {fileID: 945342143}
   - component: {fileID: 945342142}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1092,7 +1090,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1316797983
 GameObject:

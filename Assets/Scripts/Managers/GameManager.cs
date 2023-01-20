@@ -36,7 +36,7 @@ namespace SPO2.Managers
                 Destroy(this.gameObject);
             }
 
-            settings = (GameManagerSettings)Resources.Load("ManagersSettings/GameManagerSettings", typeof(GameManagerSettings));
+            settings = (GameManagerSettings)Resources.Load("GameManagerSettings", typeof(GameManagerSettings));
 
             GameData = settings.gameData;
         }
