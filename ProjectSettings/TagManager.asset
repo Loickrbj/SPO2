@@ -9,7 +9,7 @@ TagManager:
   - PressurePlate
   - Lever
   - Manivelle
-  - Buttons
+  - Button
   layers:
   - Default
   - TransparentFX

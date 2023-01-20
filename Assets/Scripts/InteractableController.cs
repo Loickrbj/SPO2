@@ -27,7 +27,7 @@ public class InteractableController : MonoBehaviourPun
         {
             switch (hit.transform.tag)
             {
-                case "Lever":
+                case "Button":
                     print("LEVER");
                     if (Input.GetKeyDown(KeyCode.E))
                     {
@@ -35,6 +35,7 @@ public class InteractableController : MonoBehaviourPun
                     }
                     break;
                 case "Manivelle":
+                case "Lever":
                     if (Input.GetKey(KeyCode.E))
                     {
                         PhotonView.Find(hit.transform.GetComponent<PhotonView>().ViewID).RPC("Interact",RpcTarget.All);
@@ -44,9 +45,7 @@ public class InteractableController : MonoBehaviourPun
                         PhotonView.Find(hit.transform.GetComponent<PhotonView>().ViewID).RPC("NotInteract", RpcTarget.All);
                     }
                     break;
-                case "Button":
-                    //hit.transform.GetComponent<ButtonController>().Interact();
-                    break;
+           
 
             }
         }
