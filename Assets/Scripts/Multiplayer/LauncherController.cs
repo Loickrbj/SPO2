@@ -4,6 +4,11 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using System;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class LauncherController : MonoBehaviourPunCallbacks
 {
@@ -14,6 +19,21 @@ public class LauncherController : MonoBehaviourPunCallbacks
     public string gameVersion = "1.0";
     public string pseudo = "Coquinou";
     public bool isConnecting = false;
+    private int SelectedSceneIndex = 1;
+
+    [Serializable]
+    public struct SceneObject
+    {
+        [HideInInspector]
+        public string sName;
+        [NonSerialized]
+        public string Path;
+    }
+
+    [Space(5)]
+    [Header("Levels to launch")]
+    [Space(5)]
+    public SceneObject[] scenes;
 
     private void Awake()
     {
@@ -80,7 +100,7 @@ public class LauncherController : MonoBehaviourPunCallbacks
     {
         Debug.Log("PUN Basics Tutorial/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
         Debug.Log("Connected to the room: " + PhotonNetwork.CurrentRoom.Name + " Player(s) online: " + PhotonNetwork.CurrentRoom.PlayerCount + " Master: " + PhotonNetwork.IsMasterClient + " is " + PhotonNetwork.MasterClient.NickName);
-        if (PhotonNetwork.IsMasterClient) PhotonNetwork.LoadLevel(1);
+        if (PhotonNetwork.IsMasterClient) PhotonNetwork.LoadLevel(scenes[SelectedSceneIndex].sName);
     }
 
     public override void OnPlayerEnteredRoom(Photon.Realtime.Player other)
@@ -116,3 +136,60 @@ public class LauncherController : MonoBehaviourPunCallbacks
         pseudo = input.text;
     }
 }
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(LauncherController))]
+public class LauncherEditor : Editor
+{
+    LauncherController t;
+    SerializedObject GetTarget;
+    public override void OnInspectorGUI()
+    {
+        DrawDefaultInspector();
+        t = (LauncherController)target;
+        GetTarget = new SerializedObject(t);
+
+        GetTarget.Update();
+
+        if (GUILayout.Button("Refresh Scenes"))
+        {
+            UpdateScenes();
+        }
+
+        SerializedProperty scenes = serializedObject.FindProperty("scenes");
+
+        scenes.isExpanded = true;
+
+        serializedObject.ApplyModifiedProperties();
+
+    }
+
+    void UpdateScenes()
+    {
+        List<LauncherController.SceneObject> scenes = new List<LauncherController.SceneObject>();
+
+        for (int i = 0; i < EditorBuildSettings.scenes.Length; i++)
+        {
+            if (EditorBuildSettings.scenes[i].enabled)
+            {
+                try
+                {
+                    var path = EditorBuildSettings.scenes[i].path;
+                    LauncherController.SceneObject val = new LauncherController.SceneObject();
+
+                    val.sName = System.IO.Path.GetFileNameWithoutExtension(path);
+                    val.Path = path;
+
+                    scenes.Add(val);
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError(e);
+                }
+            }
+        }
+
+        t.scenes = scenes.ToArray();
+    }
+}
+#endif

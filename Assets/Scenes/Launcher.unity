@@ -260,6 +260,10 @@ MonoBehaviour:
   gameVersion: 1.1
   pseudo: Coquinou
   isConnecting: 0
+  scenes:
+  - sName: Launcher
+  - sName: TestMultiplayer
+  - sName: Puzzle1
 --- !u!4 &47751527
 Transform:
   m_ObjectHideFlags: 0
