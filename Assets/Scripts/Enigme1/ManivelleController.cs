@@ -1,5 +1,6 @@
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.Events;
 
 public class ManivelleController : MonoBehaviour
 {
@@ -14,7 +15,12 @@ public class ManivelleController : MonoBehaviour
     bool isActivated = false;
 
     [SerializeField]
-    GameObject objectToActivate;
+    UnityEvent activateObject;
+
+    [SerializeField]
+    UnityEvent desactivateObject;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,13 +37,20 @@ public class ManivelleController : MonoBehaviour
 
         manivellePivotTransform.Rotate(Vector3.back * rotationDelta);
         isActivated = true;
-        objectToActivate.SetActive(isActivated);
+        activateObject.Invoke();
     }
 
     [PunRPC]
     public void NotInteract()
     {
         isActivated = false;
-        objectToActivate.SetActive(isActivated);
+        desactivateObject.Invoke();
     }
+
+
+    public bool isMoving {
+        get{
+            return isActivated;
+        }
+}
 }
