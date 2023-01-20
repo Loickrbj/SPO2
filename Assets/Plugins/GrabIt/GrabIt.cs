@@ -143,7 +143,7 @@ namespace Lightbug.GrabIt
 					if (Physics.Raycast(m_transform.position, m_transform.forward, out hitInfo, m_grabMaxDistance, m_collisionMask))
 					{
 						Rigidbody rb = hitInfo.collider.GetComponent<Rigidbody>();
-						if (rb != null)
+						if (rb != null && rb.useGravity == true)
 						{
 							Set(rb, hitInfo.distance);
 							m_grabbing = true;
@@ -158,6 +158,7 @@ namespace Lightbug.GrabIt
 		{
 			m_targetRB = target;
 			m_isHingeJoint = target.GetComponent<HingeJoint>() != null;
+
 
 			if (photonView.IsMine)
 			{
@@ -206,6 +207,7 @@ namespace Lightbug.GrabIt
 
 		void Grab()
 		{
+
 			Vector3 hitPointPos = m_hitPointObject.transform.position;
 			Vector3 dif = m_targetPos - hitPointPos;
 
