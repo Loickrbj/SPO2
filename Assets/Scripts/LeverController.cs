@@ -1,6 +1,7 @@
 using UnityEngine;
+using Photon.Pun;
 
-public class LeverController : MonoBehaviour
+public class LeverController : MonoBehaviourPun
 {
 
     [SerializeField]
@@ -26,21 +27,43 @@ public class LeverController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Ray MiddleScreenRay = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        if (Physics.Raycast(MiddleScreenRay, maxDistanceRay, layerMask))
+        //Ray MiddleScreenRay = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        //RaycastHit hit;
+        //if (Physics.Raycast(MiddleScreenRay, out hit, maxDistanceRay, layerMask))
+        //{
+        //    print(hit.transform.name);
+        //    if (hit.transform.parent.gameObject == gameObject)
+        //    {
+        //        if (Input.GetKeyDown(KeyCode.E) && !leverAnimator.GetBool("Activate"))
+        //        {
+        //            leverActivated = true;
+        //            leverAnimator.SetBool("Activate", true);
+        //            objectToActivate.SetActive(true);
+        //        }
+        //        else if (Input.GetKeyDown(KeyCode.E) && leverAnimator.GetBool("Activate"))
+        //        {
+        //            leverActivated = false;
+        //            leverAnimator.SetBool("Activate", false);
+        //            objectToActivate.SetActive(false);
+        //        }
+        //    }
+            
+        //}
+    }
+    [PunRPC]
+    public void Interact()
+    {
+        if (!leverAnimator.GetBool("Activate"))
         {
-            if (Input.GetKeyDown(KeyCode.E) && !leverAnimator.GetBool("Activate"))
-            {
-                leverActivated = true;
-                leverAnimator.SetBool("Activate", true);
-                objectToActivate.SetActive(true);
-            }
-            else if (Input.GetKeyDown(KeyCode.E) && leverAnimator.GetBool("Activate"))
-            {
-                leverActivated = false;
-                leverAnimator.SetBool("Activate", false);
-                objectToActivate.SetActive(false);
-            }
+            leverActivated = true;
+            leverAnimator.SetBool("Activate", true);
+            objectToActivate.SetActive(true);
+        }
+        else if (leverAnimator.GetBool("Activate"))
+        {
+            leverActivated = false;
+            leverAnimator.SetBool("Activate", false);
+            objectToActivate.SetActive(false);
         }
     }
 }

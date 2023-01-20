@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class ManivelleController : MonoBehaviour
 {
@@ -9,28 +8,35 @@ public class ManivelleController : MonoBehaviour
     private Transform manivellePivotTransform;
 
     [SerializeField]
-    LayerMask layerMask;
+    float rotationDelta = 5f;
 
     [SerializeField]
-    float maxDistanceRay = 5f;
+    bool isActivated = false;
 
+    [SerializeField]
+    GameObject objectToActivate;
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void Update()
     {
-        Ray MiddleScreenRay = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        objectToActivate.SetActive(isActivated);
+    }
 
-        if (Physics.Raycast(MiddleScreenRay, maxDistanceRay, layerMask))
-        {
-            if (Input.GetButton("E"))
-            {
+    [PunRPC]
+    public void Interact()
+    {
 
-            }
-        }
+        manivellePivotTransform.Rotate(Vector3.back * rotationDelta);
+        isActivated = true;
+    }
+
+    [PunRPC]
+    public void NotInteract()
+    {
+        isActivated = false;
     }
 }

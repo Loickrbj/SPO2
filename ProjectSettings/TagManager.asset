@@ -7,6 +7,9 @@ TagManager:
   - Managers
   - Bullet
   - PressurePlate
+  - Lever
+  - Manivelle
+  - Buttons
   layers:
   - Default
   - TransparentFX
