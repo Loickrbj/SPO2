@@ -23,7 +23,6 @@ public class ManivelleController : MonoBehaviour
 
     private void Update()
     {
-        objectToActivate.SetActive(isActivated);
     }
 
     [PunRPC]
@@ -32,11 +31,13 @@ public class ManivelleController : MonoBehaviour
 
         manivellePivotTransform.Rotate(Vector3.back * rotationDelta);
         isActivated = true;
+        objectToActivate.SetActive(isActivated);
     }
 
     [PunRPC]
     public void NotInteract()
     {
         isActivated = false;
+        objectToActivate.SetActive(isActivated);
     }
 }
