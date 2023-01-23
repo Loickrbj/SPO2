@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using UnityEngine.Events;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -8,7 +10,7 @@ using UnityEditor;
 
 public class ButtonPuzzleManager : MonoBehaviour
 {
-    public List<ButtonMaterial> buttonMaterials = new List<ButtonMaterial>();
+    public List<ButtonMaterial> buttonMaterials = new();
 
     [System.Serializable]
     public class ButtonMaterial
@@ -16,7 +18,18 @@ public class ButtonPuzzleManager : MonoBehaviour
         public List<Material> materials;
     }
 
-    public List<MeshRenderer> buttonRenderer = new List<MeshRenderer>();
+    [System.Serializable]
+    public class Button
+    {
+        public ButtonPuzzleID buttonPuzzleID;
+        public MeshRenderer renderer;
+    }
+
+    public List<Button> buttonRenderer = new();
+    private int lastPush = 0;
+    private bool verificationFailed = false;
+    public UnityEvent OnWinEvent;
+    public UnityEvent OnLoseEvent;
 
     // Start is called before the first frame update
     void Start()
@@ -33,18 +46,8 @@ public class ButtonPuzzleManager : MonoBehaviour
 
     public void SortButtonPuzzle()
     {
-        List<int> numberIndex = new List<int>();
-        List<int> typeIndex = new List<int>();
-
-        for (int i = 0; i < buttonRenderer.Count; ++i)
-        {
-            numberIndex.Add(i);
-        }
-
-        for(int i = 0; i < buttonMaterials[0].materials.Count; ++i)
-        {
-            typeIndex.Add(i);
-        }
+        List<int> numberIndex = Enumerable.Range(0, buttonRenderer.Count).ToList();
+        List<int> typeIndex = Enumerable.Range(0, buttonMaterials[0].materials.Count).ToList();
 
         for (int i = 0; i < buttonRenderer.Count; ++i)
         {
@@ -53,12 +56,37 @@ public class ButtonPuzzleManager : MonoBehaviour
 
             int randomNumber = numberIndex[removeNumberIndex];
             int randomType = typeIndex[removeTypeIndex];
-            buttonRenderer[i].material = buttonMaterials[randomNumber].materials[randomType];
+            buttonRenderer[i].buttonPuzzleID.value = randomNumber;
+            buttonRenderer[i].renderer.material = buttonMaterials[randomNumber].materials[randomType];
+
             numberIndex.RemoveAt(removeNumberIndex);
             typeIndex.RemoveAt(removeTypeIndex);  
         }
     }
 
+    public void CheckButton(ButtonPuzzleID buttonPuzzleID)
+    {
+        if (lastPush != buttonPuzzleID.value) verificationFailed = true;
+        if(lastPush >= buttonRenderer.Count - 1)
+        {
+            if (verificationFailed)
+            {
+                lastPush = -1;
+                foreach (Button b in buttonRenderer)
+                {
+                    OnLoseEvent.Invoke();
+                    b.buttonPuzzleID.leverController.photonView.RPC("NotInteract", Photon.Pun.RpcTarget.All);
+                }
+                verificationFailed = false;
+            }
+            else
+            {
+                OnWinEvent.Invoke();
+                Debug.Log("Win Enigme 1 Part 2");
+            }
+        }
+        lastPush++;
+    }
 
 }
 
@@ -80,13 +108,6 @@ public class ButtonPuzzleEditor : Editor
         {
             t.SortButtonPuzzle();
         }
-
-        //SerializedProperty scenes = serializedObject.FindProperty("scenes");
-
-        //scenes.isExpanded = true;
-
-        //serializedObject.ApplyModifiedProperties();
-
     }
 }
 #endif

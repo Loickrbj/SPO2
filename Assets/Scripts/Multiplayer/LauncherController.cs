@@ -12,6 +12,9 @@ using UnityEditor;
 
 public class LauncherController : MonoBehaviourPunCallbacks
 {
+    [Header("Connection")]
+    public bool isOffline = false;
+    [Space(10)]
     public bool autoConnect = true;
     [Space(10)]
     public TextMeshProUGUI textInfo;
@@ -37,6 +40,7 @@ public class LauncherController : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
+        if (isOffline) PhotonNetwork.OfflineMode = true;
         PhotonNetwork.AutomaticallySyncScene = true;
     }
 
