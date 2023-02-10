@@ -35,15 +35,20 @@ public class InteractableController : MonoBehaviourPun
                     }
                     break;
                 case "Manivelle":
+                    if (Input.GetKey(KeyCode.E))
+                    {
+                        PhotonView.Find(hit.transform.GetComponent<PhotonView>().ViewID).RPC("Interact", RpcTarget.All);
+                    }
+                    else
+                    {
+                        PhotonView.Find(hit.transform.GetComponent<PhotonView>().ViewID).RPC("NotInteract", RpcTarget.All);
+                    }
+                    break;
                 case "Lever":
                     if (Input.GetKey(KeyCode.E))
                     {
                         PhotonView.Find(hit.transform.GetComponent<PhotonView>().ViewID).RPC("Interact",RpcTarget.All);
                     }
-                    //else
-                    //{
-                    //    PhotonView.Find(hit.transform.GetComponent<PhotonView>().ViewID).RPC("NotInteract", RpcTarget.All);
-                    //}
                     break;
            
 

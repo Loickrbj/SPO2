@@ -72,6 +72,8 @@ public class ButtonController : MonoBehaviourPun
         }
     }
 
+
+
     public bool IsActivated
     {
         get

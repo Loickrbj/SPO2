@@ -20,9 +20,16 @@ public class EnigmeManivelleController : MonoBehaviourPun
     UnityEvent actionCompleted;
 
     [SerializeField]
+    UnityEvent actionNotCompleted;
+
+    [SerializeField]
     bool completed = false;
 
     bool finished = false;
+
+    public bool switchActivated = false;
+
+    public bool ManivelleActivated = false;
 
     private void Start()
     {
@@ -44,19 +51,28 @@ public class EnigmeManivelleController : MonoBehaviourPun
             if (lever.IsActivated && manivelle.isMoving)
             {
                 completed = true;
+
             }
             else
             {
                 completed = false;
+                finished = false;
             }
+            switchActivated = lever.IsActivated;
         }
 
         if( button != null)
         {
-            if (button.IsActivated && manivelle.isMoving && !completed)
+            if (button.IsActivated && manivelle.isMoving)
             {
                 completed = true;
             }
+            else
+            {
+                completed = false;
+                finished = false;
+            }
+            switchActivated = button.IsActivated;
         }
 
 
@@ -64,7 +80,10 @@ public class EnigmeManivelleController : MonoBehaviourPun
         {
             actionCompleted.Invoke();
             finished = true;
+            desactivated = false;
         }
+
+        ManivelleActivated = manivelle.isMoving;
     }
 
     public bool isCompleted
