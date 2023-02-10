@@ -36,7 +36,7 @@ public class ButtonPuzzleManager : MonoBehaviourPun
     void Start()
     {
         if (PhotonNetwork.IsMasterClient)
-            photonView.RPC("SortButtonPuzzle", RpcTarget.AllBuffered);
+            SortButtonPuzzle();
     }
 
     
@@ -46,16 +46,21 @@ public class ButtonPuzzleManager : MonoBehaviourPun
         
     }
 
-    [PunRPC]
     public void SortButtonPuzzle()
     {
         List<int> numberIndex = Enumerable.Range(0, buttonRenderer.Count).ToList();
         List<int> typeIndex = Enumerable.Range(0, buttonMaterials[0].materials.Count).ToList();
 
+        List<int> rpcRandomNumber = new List<int>();
+        List<int> rpcRandomType = new List<int>();
+
         for (int i = 0; i < buttonRenderer.Count; ++i)
         {
             int removeNumberIndex = Random.Range(0, numberIndex.Count);
             int removeTypeIndex = Random.Range(0, typeIndex.Count);
+            
+            rpcRandomNumber.Add(removeNumberIndex);
+            rpcRandomType.Add(removeNumberIndex);
 
             int randomNumber = numberIndex[removeNumberIndex];
             int randomType = typeIndex[removeTypeIndex];
@@ -64,6 +69,31 @@ public class ButtonPuzzleManager : MonoBehaviourPun
 
             numberIndex.RemoveAt(removeNumberIndex);
             typeIndex.RemoveAt(removeTypeIndex);  
+        }
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            photonView.RPC("SortButtonRPC", RpcTarget.OthersBuffered, rpcRandomNumber.ToArray(),rpcRandomType.ToArray());
+        }
+    }
+
+    [PunRPC]
+    public void SortButtonRPC(int[] removeNumber, int[] removeType)
+    {
+
+        List<int> numberIndex = Enumerable.Range(0, buttonRenderer.Count).ToList();
+        List<int> typeIndex = Enumerable.Range(0, buttonMaterials[0].materials.Count).ToList();
+
+        for (int i = 0; i < buttonRenderer.Count; ++i)
+        {
+
+            int randomNumber = numberIndex[removeNumber[i]];
+            int randomType = typeIndex[removeType[i]];
+            buttonRenderer[i].buttonPuzzleID.value = randomNumber;
+            buttonRenderer[i].renderer.material = buttonMaterials[randomNumber].materials[randomType];
+
+            numberIndex.RemoveAt(removeNumber[i]);
+            typeIndex.RemoveAt(removeType[i]);
         }
     }
 
