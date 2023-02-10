@@ -36,7 +36,7 @@ public class ButtonPuzzleManager : MonoBehaviourPun
     void Start()
     {
         if (PhotonNetwork.IsMasterClient)
-            photonView.RPC("SortButtonPuzzle", RpcTarget.All);
+            photonView.RPC("SortButtonPuzzle", RpcTarget.AllBuffered);
     }
 
     
