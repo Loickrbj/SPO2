@@ -2,6 +2,7 @@ using UnityEngine;
 using Photon.Pun;
 using UnityEngine.Events;
 using System.Collections.Generic;
+using System;
 
 public class LeverController : MonoBehaviourPun
 {
@@ -58,16 +59,20 @@ public class LeverController : MonoBehaviourPun
     [PunRPC]
     public void Interact()
     {
-        leverActivated = true;
-        leverAnimator.SetBool("Activate", true);
-        activateObject.Invoke();
-    }
-    [PunRPC]
-    public void NotInteract()
-    {
-        leverActivated = false;
-        leverAnimator.SetBool("Activate", false);
-        desactivateObject.Invoke();
+        
+
+        if (!leverAnimator.GetBool("Activate"))
+        {
+            leverActivated = true;
+            leverAnimator.SetBool("Activate", true);
+            activateObject.Invoke();
+        }
+        else
+        {
+            leverActivated = false;
+            leverAnimator.SetBool("Activate", false);
+            desactivateObject.Invoke();
+        }
     }
 
     public bool IsActivated

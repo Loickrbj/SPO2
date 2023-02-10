@@ -45,7 +45,7 @@ public class InteractableController : MonoBehaviourPun
                     }
                     break;
                 case "Lever":
-                    if (Input.GetKey(KeyCode.E))
+                    if (Input.GetKeyDown(KeyCode.E))
                     {
                         PhotonView.Find(hit.transform.GetComponent<PhotonView>().ViewID).RPC("Interact",RpcTarget.All);
                     }

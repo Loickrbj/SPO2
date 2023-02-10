@@ -1,4 +1,5 @@
 using Photon.Pun;
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -20,9 +21,6 @@ public class EnigmeManivelleController : MonoBehaviourPun
     UnityEvent actionCompleted;
 
     [SerializeField]
-    UnityEvent actionNotCompleted;
-
-    [SerializeField]
     bool completed = false;
 
     bool finished = false;
@@ -31,15 +29,27 @@ public class EnigmeManivelleController : MonoBehaviourPun
 
     public bool ManivelleActivated = false;
 
+    [SerializeField]
+    Transform Position;
+
+    [SerializeField]
+    GameObject leverPrefab;
+    [SerializeField]
+    GameObject buttonPrefab;
+
     private void Start()
     {
         if (PhotonNetwork.CountOfPlayersInRooms >= countOfPlayerToContinousTurn)
         {
             Destroy(button);
+            GameObject go = Instantiate(leverPrefab);
+            go.transform.position = Position.position;
         }
         else
         {
             Destroy(lever);
+            GameObject go = Instantiate(buttonPrefab);
+            go.transform.position = Position.position;
         }
     }
 
@@ -80,6 +90,7 @@ public class EnigmeManivelleController : MonoBehaviourPun
         {
             actionCompleted.Invoke();
             finished = true;
+            Debug.Log("L4ENGIME EST RESOLU SUSSY BAKA");
         }
 
         ManivelleActivated = manivelle.isMoving;
