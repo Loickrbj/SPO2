@@ -254,6 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e6d287c752a95047b172ec4d3e97db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOffline: 0
   autoConnect: 0
   textInfo: {fileID: 705763839}
   maxPlayerPerRoom: 5
@@ -262,9 +263,9 @@ MonoBehaviour:
   isConnecting: 0
   scenes:
   - sName: Launcher
-  - sName: ScenePickables
-  - sName: TestMultiplayer
   - sName: Puzzle1
+  - sName: TestMultiplayer
+  - sName: ScenePickables
 --- !u!4 &47751527
 Transform:
   m_ObjectHideFlags: 0
