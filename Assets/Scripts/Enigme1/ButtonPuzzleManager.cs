@@ -60,7 +60,7 @@ public class ButtonPuzzleManager : MonoBehaviourPun
             int removeTypeIndex = Random.Range(0, typeIndex.Count);
             
             rpcRandomNumber.Add(removeNumberIndex);
-            rpcRandomType.Add(removeNumberIndex);
+            rpcRandomType.Add(removeTypeIndex);
 
             int randomNumber = numberIndex[removeNumberIndex];
             int randomType = typeIndex[removeTypeIndex];
