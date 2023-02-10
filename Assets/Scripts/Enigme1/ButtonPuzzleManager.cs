@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.Events;
+using Photon.Pun;
 
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
-public class ButtonPuzzleManager : MonoBehaviour
+public class ButtonPuzzleManager : MonoBehaviourPun
 {
     public List<ButtonMaterial> buttonMaterials = new();
 
@@ -34,7 +35,8 @@ public class ButtonPuzzleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SortButtonPuzzle();
+        if (PhotonNetwork.IsMasterClient)
+            photonView.RPC("SortButtonPuzzle", RpcTarget.All);
     }
 
     
@@ -44,6 +46,7 @@ public class ButtonPuzzleManager : MonoBehaviour
         
     }
 
+    [PunRPC]
     public void SortButtonPuzzle()
     {
         List<int> numberIndex = Enumerable.Range(0, buttonRenderer.Count).ToList();
