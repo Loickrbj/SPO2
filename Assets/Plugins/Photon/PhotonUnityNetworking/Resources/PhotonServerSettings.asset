@@ -45,6 +45,7 @@ MonoBehaviour:
   - Interacte
   - notInteracted
   - NotInteract
+  - SortButtonPuzzle
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

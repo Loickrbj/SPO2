@@ -107,6 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2681750783876717644}
   - component: {fileID: 2681750783876717643}
+  - component: {fileID: 4979683565422386963}
   m_Layer: 0
   m_Name: Enigme1Part2
   m_TagString: Untagged
@@ -173,6 +174,34 @@ MonoBehaviour:
     renderer: {fileID: 3605545126189613802}
   - buttonPuzzleID: {fileID: 2488009738302260565}
     renderer: {fileID: 647324720020178963}
+  OnWinEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnLoseEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &4979683565422386963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2681750783876717645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1001 &5348155569406595768
 PrefabInstance:
   m_ObjectHideFlags: 0
