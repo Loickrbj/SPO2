@@ -80,7 +80,6 @@ public class EnigmeManivelleController : MonoBehaviourPun
         {
             actionCompleted.Invoke();
             finished = true;
-            desactivated = false;
         }
 
         ManivelleActivated = manivelle.isMoving;
