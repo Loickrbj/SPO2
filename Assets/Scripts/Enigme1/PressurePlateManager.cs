@@ -10,6 +10,8 @@ public class PressurePlateManager : MonoBehaviour
 
     public UnityEvent OnWinEvent;
 
+    private bool isWon;
+
     private void Start()
     {
         InitializePlates();
@@ -17,8 +19,14 @@ public class PressurePlateManager : MonoBehaviour
 
     private void Update()
     {
+        if (isWon)
+        {
+            return;
+        }
+
         if (CheckWin())
         {
+            isWon = true;
             OnWinEvent.Invoke();
             Debug.Log("Pressure plates OK!");
         }

@@ -13,7 +13,6 @@ public class PressurePlate : MonoBehaviour
         meshRenderer = GetComponent<MeshRenderer>();
         meshRenderer.material = new Material(referenceMaterial);
         meshRenderer.material.color = Color.gray;
-        CheckCondition();
     }
 
     private void OnTriggerEnter(Collider other)
