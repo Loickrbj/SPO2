@@ -1,5 +1,6 @@
 using Photon.Pun;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnigmeManivelleController : MonoBehaviourPun
 {
@@ -16,7 +17,12 @@ public class EnigmeManivelleController : MonoBehaviourPun
     int countOfPlayerToContinousTurn;
 
     [SerializeField]
+    UnityEvent actionCompleted;
+
+    [SerializeField]
     bool completed = false;
+
+    bool finished = false;
 
     private void Start()
     {
@@ -52,6 +58,13 @@ public class EnigmeManivelleController : MonoBehaviourPun
                 completed = true;
             }
         }
+
+
+        if (!finished && completed)
+        {
+            actionCompleted.Invoke();
+            finished = true;
+        }
     }
 
     public bool isCompleted
@@ -61,4 +74,11 @@ public class EnigmeManivelleController : MonoBehaviourPun
             return completed;
         }
     }
+
+    public void baka()
+    {
+        Debug.Log("BAKA");
+    }
+
+
 }

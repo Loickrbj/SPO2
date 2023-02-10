@@ -262,6 +262,8 @@ MonoBehaviour:
   isConnecting: 0
   scenes:
   - sName: Launcher
+  - sName: ScenePickables
+  - sName: TestMultiplayer
   - sName: Puzzle1
 --- !u!4 &47751527
 Transform:
