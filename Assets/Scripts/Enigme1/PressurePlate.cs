@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
-    [SerializeField] private int pressureCondition = 0;
     [SerializeField] private Material referenceMaterial;
     private MeshRenderer meshRenderer;
-    private int playersCount;
+    private int playersCount = 0;
+    public int NumberOfPlayersRequired = 0;
     public bool IsActivated;
 
     private void Start()
@@ -36,17 +36,17 @@ public class PressurePlate : MonoBehaviour
 
     private void CheckCondition()
     {
-        if (playersCount != 0 && playersCount < pressureCondition)
+        if (playersCount != 0 && playersCount < NumberOfPlayersRequired)
         {
             meshRenderer.material.color = Color.yellow;
             IsActivated = false;
         }
-        else if (playersCount == pressureCondition)
+        else if (playersCount == NumberOfPlayersRequired)
         {
             meshRenderer.material.color = Color.green;
             IsActivated = true;
         }
-        else if (playersCount >= pressureCondition)
+        else if (playersCount >= NumberOfPlayersRequired)
         {
             meshRenderer.material.color = Color.red;
             IsActivated = false;
@@ -60,6 +60,6 @@ public class PressurePlate : MonoBehaviour
 
     public void SetPressureCondition(int value)
     {
-        pressureCondition = value;
+        NumberOfPlayersRequired = value;
     }
 }
