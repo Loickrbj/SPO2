@@ -1,29 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SPO2.Enigme1
 {
     public class PressurePlate : MonoBehaviour
     {
-
-        #region Attributes
         [SerializeField] private int pressureCondition = 0;
-        [SerializeField] private Material material;
-
+        [SerializeField] private Material referenceMaterial;
+        private MeshRenderer meshRenderer;
         private int playersCount;
-        #endregion
 
-        void Start()
+        private void Start()
         {
-            material.color = Color.gray;
+            meshRenderer = GetComponent<MeshRenderer>();
+            meshRenderer.material = new Material(referenceMaterial);
+            meshRenderer.material.color = Color.gray;
             CheckCondition();
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
         }
 
         private void OnTriggerEnter(Collider other)
@@ -47,13 +38,13 @@ namespace SPO2.Enigme1
         private void CheckCondition()
         {
             if (playersCount != 0 && playersCount < pressureCondition)
-                material.color = Color.yellow;
+                meshRenderer.material.color = Color.yellow;
             else if (playersCount == pressureCondition)
-                material.color = Color.green;
+                meshRenderer.material.color = Color.green;
             else if (playersCount >= pressureCondition)
-                material.color = Color.red;
+                meshRenderer.material.color = Color.red;
             else
-                material.color = Color.gray;
+                meshRenderer.material.color = Color.gray;
         }
 
         public void SetPressureCondition(int value)
