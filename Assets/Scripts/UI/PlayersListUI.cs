@@ -1,18 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using TMPro;
 
-public class PlayersListUI : MonoBehaviour
+public class PlayersListUI : MonoBehaviourPun
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private PlayerDataUI playerDataPrefab;
+    [SerializeField] private GameObject viewport;
+    [SerializeField] private TextMeshProUGUI playersCount;
 
-    // Update is called once per frame
-    void Update()
+    private List<Photon.Realtime.Player> playerDataList = new List<Photon.Realtime.Player>();
+
+    public void Setup(Photon.Realtime.Player[] players)
     {
-        
+        foreach (Photon.Realtime.Player player in players)
+        {
+            PlayerDataUI playerDataUI = Instantiate(playerDataPrefab, viewport.transform); 
+            playerDataUI.Setup(player);
+            playerDataList.Add(player);
+            
+        }
+        playersCount.SetText(players.Length.ToString() + " players");
     }
 }
