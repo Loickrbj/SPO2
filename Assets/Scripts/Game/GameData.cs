@@ -11,6 +11,8 @@ namespace SPO2
         public class PlayerData
         {
             public GameObject characterPrefab;
+            public GameObject masterPrefab;
+            public bool noMaster = true;
         }
 
         public PlayerData Player = new PlayerData();

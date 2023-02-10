@@ -43,7 +43,11 @@ namespace SPO2.Managers
 
         private void Start()
         {
-            if(PlayerManager.localPlayer == null)
+            if (!GameData.Player.noMaster && PhotonNetwork.IsMasterClient)
+            {
+                player = PhotonNetwork.Instantiate(GameData.Player.masterPrefab.name, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
+            }
+            else if(PlayerManager.localPlayer == null)
                 player = PhotonNetwork.Instantiate(GameData.Player.characterPrefab.name, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
         }
 
