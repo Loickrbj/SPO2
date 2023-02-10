@@ -1,34 +1,41 @@
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PressurePlateManager : MonoBehaviour
+public class PressurePlateManager : MonoBehaviourPun
 {
-    [SerializeField] private int numberOfPlayers = 1;
+    [SerializeField] private int numberOfPlayers = 0;
     [SerializeField] private PressurePlate pressurePlate1;
     [SerializeField] private PressurePlate pressurePlate2;
     [SerializeField] private PressurePlate pressurePlate3;
 
     public UnityEvent OnWinEvent;
 
-    private void Start()
-    {
-        InitializePlates();
-    }
+    private bool isWon;
 
     private void Update()
     {
+        if (isWon)
+        {
+            return;
+        }
+
         if (CheckWin())
         {
+            isWon = true;
             OnWinEvent.Invoke();
             Debug.Log("Pressure plates OK!");
         }
     }
 
-    private void InitializePlates()
+    public void InitializePlates()
     {
+        numberOfPlayers = PhotonNetwork.CountOfPlayers - 1;
+
         pressurePlate1.gameObject.SetActive(false);
         pressurePlate2.gameObject.SetActive(false);
         pressurePlate3.gameObject.SetActive(false);
+
         if (numberOfPlayers >= 1)
         {
             pressurePlate1.gameObject.SetActive(true);
