@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2781410738928257789, guid: de91372ced4a997478f5dc8d9046b778, type: 3}
+  - {fileID: 2100000, guid: 30f1bb42984b983498faa490233919be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -211,7 +211,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2781410738928257789, guid: de91372ced4a997478f5dc8d9046b778, type: 3}
+  - {fileID: 2100000, guid: 30f1bb42984b983498faa490233919be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -281,7 +281,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb892ff22942f094fbf0029e7948a114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToActivate: {fileID: 0}
+  activateObject:
+    m_PersistentCalls:
+      m_Calls: []
+  desactivateObject:
+    m_PersistentCalls:
+      m_Calls: []
   layerMask:
     serializedVersion: 2
     m_Bits: 256
