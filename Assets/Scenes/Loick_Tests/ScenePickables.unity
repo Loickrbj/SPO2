@@ -167,78 +167,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &804577524
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1600849226178204267, guid: 34bb92e059840e04a9f237c4c6872c24, type: 3}
-      propertyPath: sceneViewId
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264754092199793957, guid: 34bb92e059840e04a9f237c4c6872c24, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264754092199793957, guid: 34bb92e059840e04a9f237c4c6872c24, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.5863714
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264754092199793957, guid: 34bb92e059840e04a9f237c4c6872c24, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264754092199793957, guid: 34bb92e059840e04a9f237c4c6872c24, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.738173
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264754092199793957, guid: 34bb92e059840e04a9f237c4c6872c24, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264754092199793957, guid: 34bb92e059840e04a9f237c4c6872c24, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264754092199793957, guid: 34bb92e059840e04a9f237c4c6872c24, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264754092199793957, guid: 34bb92e059840e04a9f237c4c6872c24, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264754092199793957, guid: 34bb92e059840e04a9f237c4c6872c24, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264754092199793957, guid: 34bb92e059840e04a9f237c4c6872c24, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8264754092199793957, guid: 34bb92e059840e04a9f237c4c6872c24, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8789230568412155807, guid: 34bb92e059840e04a9f237c4c6872c24, type: 3}
-      propertyPath: m_Name
-      value: Button
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 34bb92e059840e04a9f237c4c6872c24, type: 3}
---- !u!114 &804577525 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7503870868488511924, guid: 34bb92e059840e04a9f237c4c6872c24, type: 3}
-  m_PrefabInstance: {fileID: 804577524}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdfd07af97d9e0544bdc4bb890bcb588, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &835452683
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,7 +372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8264754092199793957, guid: 64b0e9f01bab0d5438528985110ca73f, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8264754092199793957, guid: 64b0e9f01bab0d5438528985110ca73f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -492,7 +420,7 @@ PrefabInstance:
       objectReference: {fileID: 2074547437}
     - target: {fileID: 8789230568412155807, guid: 64b0e9f01bab0d5438528985110ca73f, type: 3}
       propertyPath: m_Name
-      value: Lever (1)
+      value: 'Lever '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64b0e9f01bab0d5438528985110ca73f, type: 3}
@@ -538,7 +466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manivelle: {fileID: 3512011290153633800}
   lever: {fileID: 1275528051}
-  button: {fileID: 804577525}
+  button: {fileID: 0}
   countOfPlayerToContinousTurn: 0
   actionCompleted:
     m_PersistentCalls:
@@ -556,6 +484,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   completed: 0
+  switchActivated: 0
+  ManivelleActivated: 0
+  Position: {fileID: 0}
+  leverPrefab: {fileID: 0}
+  buttonPrefab: {fileID: 0}
 --- !u!4 &1287695813
 Transform:
   m_ObjectHideFlags: 0

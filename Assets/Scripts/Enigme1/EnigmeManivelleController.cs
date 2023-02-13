@@ -42,13 +42,13 @@ public class EnigmeManivelleController : MonoBehaviourPun
         if (PhotonNetwork.CountOfPlayersInRooms >= countOfPlayerToContinousTurn)
         {
             Destroy(button);
-            GameObject go = Instantiate(leverPrefab);
+            GameObject go = PhotonNetwork.Instantiate("Lever", Position.position, Quaternion.Euler(0,180,0));
             go.transform.position = Position.position;
         }
         else
         {
             Destroy(lever);
-            GameObject go = Instantiate(buttonPrefab);
+            GameObject go = PhotonNetwork.Instantiate("Switch", Position.position, Quaternion.Euler(0, 180, 0));
             go.transform.position = Position.position;
         }
     }

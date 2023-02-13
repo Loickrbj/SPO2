@@ -201,11 +201,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5110105840706074836, guid: 2c4cc1e400a83e94aa8578060c47fa3f, type: 3}
       propertyPath: sceneViewId
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6370353465172461515, guid: 2c4cc1e400a83e94aa8578060c47fa3f, type: 3}
       propertyPath: sceneViewId
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7105185902041042226, guid: 2c4cc1e400a83e94aa8578060c47fa3f, type: 3}
       propertyPath: sceneViewId
@@ -611,6 +611,10 @@ PrefabInstance:
     - target: {fileID: 3031816701402522432, guid: 22f853d6ab52615458967cff12a7852f, type: 3}
       propertyPath: m_Name
       value: Enigme1Part1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3031816701402522434, guid: 22f853d6ab52615458967cff12a7852f, type: 3}
+      propertyPath: countOfPlayerToContinousTurn
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3031816701402522434, guid: 22f853d6ab52615458967cff12a7852f, type: 3}
       propertyPath: actionCompleted.m_PersistentCalls.m_Calls.Array.size

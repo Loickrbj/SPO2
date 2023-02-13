@@ -59,20 +59,17 @@ public class LeverController : MonoBehaviourPun
     [PunRPC]
     public void Interact()
     {
-        
-
-        if (!leverAnimator.GetBool("Activate"))
-        {
             leverActivated = true;
             leverAnimator.SetBool("Activate", true);
             activateObject.Invoke();
-        }
-        else
-        {
+    }
+
+    [PunRPC]
+    public void NotInteract()
+    {
             leverActivated = false;
             leverAnimator.SetBool("Activate", false);
             desactivateObject.Invoke();
-        }
     }
 
     public bool IsActivated
