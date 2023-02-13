@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 5535020440696031021}
   - component: {fileID: 4848711642306563882}
   - component: {fileID: 4803262562412799078}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PanelButton
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

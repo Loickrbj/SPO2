@@ -1,5 +1,4 @@
 using Photon.Pun;
-using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,14 +6,16 @@ public class CrankPuzzleManager : MonoBehaviourPun
 {
     [SerializeField]
     private CrankController crank;
+
     private LeverController lever;
     private ButtonController button;
 
     [SerializeField]
     private int countOfPlayerToContinousTurn;
 
-    private bool completed = false;
-    private bool finished = false;
+    private bool isEverythingActivated;
+
+    private bool isFinished;
 
     [SerializeField]
     Transform ButtonOrLeverTransform;
@@ -26,67 +27,33 @@ public class CrankPuzzleManager : MonoBehaviourPun
     {
         if (PhotonNetwork.CountOfPlayersInRooms >= countOfPlayerToContinousTurn)
         {
-            Destroy(button);
             GameObject go = PhotonNetwork.Instantiate("Lever", ButtonOrLeverTransform.position, ButtonOrLeverTransform.rotation);
             lever = go.GetComponent<LeverController>();
         }
         else
         {
-            Destroy(lever);
             GameObject go = PhotonNetwork.Instantiate("Button", ButtonOrLeverTransform.position, ButtonOrLeverTransform.rotation);
             button = go.GetComponent<ButtonController>();
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (lever != null)
+        if (lever != null && lever.IsActivated && crank.IsRotating)
         {
-            if (lever.IsActivated && crank.isMoving)
-            {
-                completed = true;
-            }
-            else
-            {
-                completed = false;
-                finished = false;
-            }
+            isEverythingActivated = true;
         }
 
-        if( button != null)
+        if (button != null && button.IsActivated && crank.IsRotating)
         {
-            if (button.IsActivated && crank.isMoving)
-            {
-                completed = true;
-            }
-            else
-            {
-                completed = false;
-                finished = false;
-            }
+            isEverythingActivated = true;
         }
 
-        if (!finished && completed)
+        if (isEverythingActivated && !isFinished)
         {
+            isFinished = true;
             actionCompleted.Invoke();
-            finished = true;
-            Debug.Log("L4ENGIME EST RESOLU SUSSY BAKA");
+            Debug.Log("L'ENGIME EST RESOLU SUSSY BAKA");
         }
     }
-
-    public bool isCompleted
-    {
-        get
-        {
-            return completed;
-        }
-    }
-
-    public void baka()
-    {
-        Debug.Log("BAKA");
-    }
-
-
 }

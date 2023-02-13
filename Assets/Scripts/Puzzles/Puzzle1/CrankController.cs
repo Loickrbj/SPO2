@@ -1,6 +1,5 @@
 using UnityEngine;
 using Photon.Pun;
-using UnityEngine.Events;
 
 public class CrankController : MonoBehaviour
 {
@@ -8,48 +7,20 @@ public class CrankController : MonoBehaviour
     private Transform crankPivotTransform;
 
     [SerializeField]
-    float rotationDelta = 5f;
+    float rotationAngle = 5f;
 
-    [SerializeField]
-    bool isActivated = false;
-
-    [SerializeField]
-    UnityEvent activateObject;
-
-    [SerializeField]
-    UnityEvent desactivateObject;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-
-    private void Update()
-    {
-    }
+    public bool IsRotating = false;
 
     [PunRPC]
     public void Interact()
     {
-
-        crankPivotTransform.Rotate(Vector3.back * rotationDelta);
-        isActivated = true;
-        activateObject.Invoke();
+        crankPivotTransform.Rotate(Vector3.back * rotationAngle);
+        IsRotating = true;
     }
 
     [PunRPC]
     public void NotInteract()
     {
-        isActivated = false;
-        desactivateObject.Invoke();
+        IsRotating = false;
     }
-
-
-    public bool isMoving {
-        get{
-            return isActivated;
-        }
-}
 }

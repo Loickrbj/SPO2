@@ -127,9 +127,9 @@ GameObject:
   - component: {fileID: 7442952158044559698}
   - component: {fileID: 4316113615350920009}
   - component: {fileID: 3154593012056830122}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Crank
-  m_TagString: Untagged
+  m_TagString: Manivelle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
