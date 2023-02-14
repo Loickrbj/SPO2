@@ -259,7 +259,7 @@ MonoBehaviour:
   textInfo: {fileID: 705763839}
   maxPlayerPerRoom: 5
   gameVersion: 1.1
-  pseudo: Likarios
+  pseudo: Coquinou
   isConnecting: 0
   scenes:
   - sName: Launcher

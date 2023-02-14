@@ -12,6 +12,8 @@ public class InteractableController : MonoBehaviourPun
     [SerializeField]
     float maxDistanceRay = 5f;
 
+    private PhotonView interactObjectView;
+
     // Update is called once per frame
     void Update()
     {
@@ -23,41 +25,54 @@ public class InteractableController : MonoBehaviourPun
         Ray MiddleScreenRay = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
 
-        if (Physics.Raycast(MiddleScreenRay, out hit, maxDistanceRay, layerMask))
-        {
-            switch (hit.transform.tag)
-            {
-                case "Button":
-                    //print("LEVER");
-                    if (Input.GetKeyDown(KeyCode.E))
-                    {
-                        PhotonView.Find(hit.transform.GetComponent<PhotonView>().ViewID).RPC("Interact",RpcTarget.All);
-                    }
-                    break;
-                case "Manivelle":
-                    if (Input.GetKey(KeyCode.E))
-                    {
-                        PhotonView.Find(hit.transform.GetComponent<PhotonView>().ViewID).RPC("Interact", RpcTarget.All);
-                    }
-                    else
-                    {
-                        PhotonView.Find(hit.transform.GetComponent<PhotonView>().ViewID).RPC("NotInteract", RpcTarget.All);
-                    }
-                    break;
-                case "Lever":
-                    if (Input.GetKey(KeyCode.E))
-                    {
-                        PhotonView.Find(hit.transform.GetComponent<PhotonView>().ViewID).RPC("Interact", RpcTarget.All);
-                    }
-                    else
-                    {
-                        PhotonView.Find(hit.transform.GetComponent<PhotonView>().ViewID).RPC("NotInteract", RpcTarget.All);
-                    }
-                    break;
-           
 
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (Physics.Raycast(MiddleScreenRay, out hit, maxDistanceRay, layerMask))
+            {
+                switch (hit.transform.tag)
+                {
+                    case "Button":
+                        PhotonView.Find(hit.transform.GetComponent<PhotonView>().ViewID).RPC("Interact", RpcTarget.All);
+                        break;
+                    case "Manivelle":
+                        interactObjectView = PhotonView.Find(hit.transform.GetComponent<PhotonView>().ViewID);
+                        interactObjectView.RPC("Interact", RpcTarget.All);
+                        break;
+                    case "Lever":
+                        interactObjectView = PhotonView.Find(hit.transform.GetComponent<PhotonView>().ViewID);
+                        interactObjectView.RPC("Interact", RpcTarget.All);
+                        break;
+                }
             }
         }
+
+        if (interactObjectView != null)
+        {
+            if (Physics.Raycast(MiddleScreenRay, out hit, maxDistanceRay, layerMask))
+            {
+                if (PhotonView.Find(hit.transform.GetComponent<PhotonView>().ViewID) != interactObjectView)
+                {
+                    interactObjectView.RPC("NotInteract", RpcTarget.All);
+                    interactObjectView = null;
+                }
+            }
+            else
+            {
+                interactObjectView.RPC("NotInteract", RpcTarget.All);
+                interactObjectView = null;
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            if (interactObjectView != null)
+            {
+                interactObjectView.RPC("NotInteract", RpcTarget.All);
+                interactObjectView = null;
+            }
+        }
+
     }
 }
 

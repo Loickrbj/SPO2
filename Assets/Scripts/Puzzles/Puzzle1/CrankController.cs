@@ -14,8 +14,16 @@ public class CrankController : MonoBehaviour
     [PunRPC]
     public void Interact()
     {
-        crankPivotTransform.Rotate(Vector3.back * rotationAngle);
+        
         IsRotating = true;
+    }
+
+    private void Update()
+    {
+        if (IsRotating)
+        {
+            crankPivotTransform.Rotate(Vector3.back * rotationAngle);
+        }
     }
 
     [PunRPC]
