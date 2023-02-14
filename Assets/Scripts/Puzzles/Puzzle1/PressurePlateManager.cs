@@ -30,6 +30,9 @@ public class PressurePlateManager : MonoBehaviourPun
 
     public void InitializePlates()
     {
+
+        Debug.Log("Wesh");
+
         numberOfPlayers = PhotonNetwork.CountOfPlayers - 1;
 
         pressurePlate1.gameObject.SetActive(false);
@@ -38,6 +41,7 @@ public class PressurePlateManager : MonoBehaviourPun
 
         if (numberOfPlayers >= 1)
         {
+            Debug.Log("Coucou");
             pressurePlate1.gameObject.SetActive(true);
             pressurePlate1.NumberOfPlayersRequired = 1;
         }

@@ -7,15 +7,15 @@ public class CrankPuzzleManager : MonoBehaviourPun
     [SerializeField]
     private CrankController crank;
 
+    [SerializeField]
     private LeverController lever;
+
+    [SerializeField]
     private ButtonController button;
 
     private bool isEverythingActivated;
 
     private bool isFinished;
-
-    [SerializeField]
-    Transform ButtonOrLeverTransform;
 
     [SerializeField]
     private UnityEvent actionCompleted;
@@ -24,13 +24,11 @@ public class CrankPuzzleManager : MonoBehaviourPun
     {
         if (PhotonNetwork.CountOfPlayersInRooms - 1 > 2)
         {
-            GameObject go = PhotonNetwork.Instantiate("Lever", ButtonOrLeverTransform.position, ButtonOrLeverTransform.rotation);
-            lever = go.GetComponent<LeverController>();
+            button.gameObject.SetActive(false);
         }
         else
         {
-            GameObject go = PhotonNetwork.Instantiate("Button", ButtonOrLeverTransform.position, ButtonOrLeverTransform.rotation);
-            button = go.GetComponent<ButtonController>();
+            lever.gameObject.SetActive(false);
         }
     }
 

@@ -880,6 +880,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1779782719817053345, guid: 22f853d6ab52615458967cff12a7852f, type: 3}
+      propertyPath: sceneViewId
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2461984115309996931, guid: 22f853d6ab52615458967cff12a7852f, type: 3}
+      propertyPath: sceneViewId
+      value: 24
+      objectReference: {fileID: 0}
     - target: {fileID: 3031816701402522432, guid: 22f853d6ab52615458967cff12a7852f, type: 3}
       propertyPath: m_Name
       value: Puzzle1Part1
