@@ -124,6 +124,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextPhaseKey: 13
+  MainVoicelineKey: 105
+  FlavorVoicelineKey: 111
+  ClueVoicelineKey: 112
 --- !u!114 &5254330747987387918
 MonoBehaviour:
   m_ObjectHideFlags: 0

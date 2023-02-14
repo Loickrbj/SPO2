@@ -6,59 +6,60 @@ public class VoiceManager : MonoBehaviour
 {
     public static VoiceManager Instance;
 
-    public AudioSource Puzzle1EntranceVoiceline;
-    public AudioSource Puzzle1FlavorVoiceline1;
-    public AudioSource Puzzle1FlavorVoiceline2;
-    public AudioSource Puzzle1FlavorVoiceline3;
-    public AudioSource Puzzle1ClueVoiceline1;
-    public AudioSource Puzzle1ClueVoiceline2;
-    public AudioSource Puzzle1ClueVoiceline3;
-    public AudioSource Puzzle1CompletionVoiceline;
+    public List<AudioClip> MainVoicelines;
+    public List<AudioClip> FlavorVoicelines;
+    public List<AudioClip> ClueVoicelines;
 
-    public 
+    private AudioSource audioSource;
+
+    private int mainVoicelinesCount = 0;
+    private int flavorVoicelinesCount = 0;
+    private int clueVoicelinesCount = 0;
+
     // Start is called before the first frame update
     void Start()
     {
         Instance = this;
+        audioSource = transform.GetComponent<AudioSource>();
     }
 
-    public static void CallPuzzle1EntranceVoiceline()
+    public static void CallMainVoiceline(bool skip)
     {
-        VoiceManager.Instance.Puzzle1EntranceVoiceline.Play();
+        if (VoiceManager.Instance.mainVoicelinesCount < VoiceManager.Instance.MainVoicelines.Count)
+        {
+            if (!skip)
+            {
+                VoiceManager.Instance.audioSource.clip = VoiceManager.Instance.MainVoicelines[VoiceManager.Instance.mainVoicelinesCount];
+                VoiceManager.Instance.audioSource.Play();
+            }
+            ++VoiceManager.Instance.mainVoicelinesCount;
+        }
     }
 
-    public static void CallPuzzle1FlavorVoiceline1()
+    public static void CallFlavorVoiceline(bool skip)
     {
-        VoiceManager.Instance.Puzzle1FlavorVoiceline1.Play();
+        if (VoiceManager.Instance.flavorVoicelinesCount < VoiceManager.Instance.FlavorVoicelines.Count)
+        {
+            if (!skip)
+            {
+                VoiceManager.Instance.audioSource.clip = VoiceManager.Instance.FlavorVoicelines[VoiceManager.Instance.flavorVoicelinesCount];
+                VoiceManager.Instance.audioSource.Play();
+            }
+            ++VoiceManager.Instance.flavorVoicelinesCount;
+        }
     }
 
-    public static void CallPuzzle1FlavorVoiceline2()
+    public static void CallClueVoiceline(bool skip)
     {
-        VoiceManager.Instance.Puzzle1FlavorVoiceline2.Play();
+        if (VoiceManager.Instance.clueVoicelinesCount < VoiceManager.Instance.ClueVoicelines.Count)
+        {
+            if (!skip)
+            {
+                VoiceManager.Instance.audioSource.clip = VoiceManager.Instance.ClueVoicelines[VoiceManager.Instance.clueVoicelinesCount];
+                VoiceManager.Instance.audioSource.Play();
+            }
+            ++VoiceManager.Instance.clueVoicelinesCount;
+        }
     }
 
-    public static void CallPuzzle1FlavorVoiceline3()
-    {
-        VoiceManager.Instance.Puzzle1FlavorVoiceline3.Play();
-    }
-
-    public static void CallPuzzle1ClueVoiceline1()
-    {
-        VoiceManager.Instance.Puzzle1ClueVoiceline1.Play();
-    }
-
-    public static void CallPuzzle1ClueVoiceline2()
-    {
-        VoiceManager.Instance.Puzzle1ClueVoiceline2.Play();
-    }
-
-    public static void CallPuzzle1ClueVoiceline3()
-    {
-        VoiceManager.Instance.Puzzle1ClueVoiceline3.Play();
-    }
-
-    public static void CallPuzzle1CompletionVoiceline()
-    {
-        VoiceManager.Instance.Puzzle1CompletionVoiceline.Play();
-    }
 }
