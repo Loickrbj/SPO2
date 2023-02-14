@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/TestMultiplayer.unity
     guid: ddf18d6c2948db54ba5c89e4de37a4e1
   - enabled: 1
-    path: Assets/Scenes/Puzzle1/Puzzle1.unity
+    path: Assets/Scenes/Puzzle1.unity
     guid: a5bd96ddcaf0dc143ae23a50ed6ac35f
   m_configObjects: {}
