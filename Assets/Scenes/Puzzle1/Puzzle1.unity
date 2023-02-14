@@ -152,9 +152,21 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2681750783876717643, guid: 2c4cc1e400a83e94aa8578060c47fa3f, type: 3}
+      propertyPath: OnWinEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2681750783876717643, guid: 2c4cc1e400a83e94aa8578060c47fa3f, type: 3}
       propertyPath: OnWinEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1245146734}
+    - target: {fileID: 2681750783876717643, guid: 2c4cc1e400a83e94aa8578060c47fa3f, type: 3}
+      propertyPath: OnWinEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayNextEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 2681750783876717643, guid: 2c4cc1e400a83e94aa8578060c47fa3f, type: 3}
+      propertyPath: OnWinEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PuzzleManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 2681750783876717644, guid: 2c4cc1e400a83e94aa8578060c47fa3f, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -420,6 +432,20 @@ MonoBehaviour:
   events:
   - m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 3031816702474493642}
+        m_TargetAssemblyTypeName: CrankPuzzleManager, Assembly-CSharp
+        m_MethodName: Initialize
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
       - m_Target: {fileID: 1349794390}
         m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
         m_MethodName: set_useGravity
@@ -622,7 +648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3031816701402522434, guid: 22f853d6ab52615458967cff12a7852f, type: 3}
       propertyPath: countOfPlayerToContinousTurn
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3031816701402522434, guid: 22f853d6ab52615458967cff12a7852f, type: 3}
       propertyPath: actionCompleted.m_PersistentCalls.m_Calls.Array.size
@@ -630,7 +656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3031816701402522434, guid: 22f853d6ab52615458967cff12a7852f, type: 3}
       propertyPath: actionCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3031816701402522434, guid: 22f853d6ab52615458967cff12a7852f, type: 3}
       propertyPath: actionCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -642,7 +668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3031816701402522434, guid: 22f853d6ab52615458967cff12a7852f, type: 3}
       propertyPath: actionCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayEventPhase
+      value: PlayNextEvent
       objectReference: {fileID: 0}
     - target: {fileID: 3031816701402522434, guid: 22f853d6ab52615458967cff12a7852f, type: 3}
       propertyPath: actionCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -712,8 +738,23 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6683597412920861155, guid: 22f853d6ab52615458967cff12a7852f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.036
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22f853d6ab52615458967cff12a7852f, type: 3}
+--- !u!114 &3031816702474493642 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3031816701402522434, guid: 22f853d6ab52615458967cff12a7852f, type: 3}
+  m_PrefabInstance: {fileID: 3031816702474493641}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f68a9fc8222a734a8053caaf593ed69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6944311876922568666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -721,6 +762,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1110553202}
     m_Modifications:
+    - target: {fileID: 6944311877074116388, guid: e6dfbfa7ccc663b44a9c6150382982c6, type: 3}
+      propertyPath: OnWinEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6944311877074116388, guid: e6dfbfa7ccc663b44a9c6150382982c6, type: 3}
+      propertyPath: OnWinEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6944311877074116388, guid: e6dfbfa7ccc663b44a9c6150382982c6, type: 3}
+      propertyPath: OnWinEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1245146734}
+    - target: {fileID: 6944311877074116388, guid: e6dfbfa7ccc663b44a9c6150382982c6, type: 3}
+      propertyPath: OnWinEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6944311877074116388, guid: e6dfbfa7ccc663b44a9c6150382982c6, type: 3}
+      propertyPath: OnWinEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayNextEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 6944311877074116388, guid: e6dfbfa7ccc663b44a9c6150382982c6, type: 3}
+      propertyPath: OnWinEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PuzzleManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6944311877074116388, guid: e6dfbfa7ccc663b44a9c6150382982c6, type: 3}
+      propertyPath: OnWinEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6944311877074116390, guid: e6dfbfa7ccc663b44a9c6150382982c6, type: 3}
       propertyPath: m_Name
       value: Enigme1Part3

@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player:
     characterPrefab: {fileID: 9061313145334198261, guid: f0a05c16b0618934c82dba669908df66, type: 3}
+    masterPrefab: {fileID: 5254330747987387913, guid: 66b873ffd22c70044b50b36654b6c6a0, type: 3}
+    noMaster: 0

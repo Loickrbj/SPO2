@@ -23,7 +23,7 @@ public class CrankPuzzleManager : MonoBehaviourPun
     [SerializeField]
     private UnityEvent actionCompleted;
 
-    private void Start()
+    public void Initialize()
     {
         if (PhotonNetwork.CountOfPlayersInRooms >= countOfPlayerToContinousTurn)
         {
