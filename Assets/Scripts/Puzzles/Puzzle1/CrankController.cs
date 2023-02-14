@@ -7,7 +7,7 @@ public class CrankController : MonoBehaviour
     private Transform crankPivotTransform;
 
     [SerializeField]
-    float rotationAngle = 5f;
+    float rotationAngle = 180f;
 
     public bool IsRotating = false;
 
@@ -22,7 +22,7 @@ public class CrankController : MonoBehaviour
     {
         if (IsRotating)
         {
-            crankPivotTransform.Rotate(Vector3.back * rotationAngle);
+            crankPivotTransform.Rotate(Vector3.back * rotationAngle * Time.deltaTime);
         }
     }
 

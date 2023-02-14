@@ -290,7 +290,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 256
-  maxDistanceRay: 5
 --- !u!65 &8446773177780126183
 BoxCollider:
   m_ObjectHideFlags: 0

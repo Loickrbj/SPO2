@@ -186,14 +186,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crankPivotTransform: {fileID: 3027093885699846695}
-  rotationDelta: 0.5
-  isActivated: 0
-  activateObject:
-    m_PersistentCalls:
-      m_Calls: []
-  desactivateObject:
-    m_PersistentCalls:
-      m_Calls: []
+  rotationAngle: 180
+  IsRotating: 0
 --- !u!65 &3154593012056830122
 BoxCollider:
   m_ObjectHideFlags: 0
