@@ -10,9 +10,6 @@ public class CrankPuzzleManager : MonoBehaviourPun
     private LeverController lever;
     private ButtonController button;
 
-    [SerializeField]
-    private int countOfPlayerToContinousTurn;
-
     private bool isEverythingActivated;
 
     private bool isFinished;
@@ -25,15 +22,15 @@ public class CrankPuzzleManager : MonoBehaviourPun
 
     public void Initialize()
     {
-        if (PhotonNetwork.CountOfPlayersInRooms >= countOfPlayerToContinousTurn)
-        {
-            GameObject go = PhotonNetwork.Instantiate("Lever", ButtonOrLeverTransform.position, ButtonOrLeverTransform.rotation);
-            lever = go.GetComponent<LeverController>();
-        }
-        else
+        if (PhotonNetwork.CountOfPlayersInRooms - 1 > 2)
         {
             GameObject go = PhotonNetwork.Instantiate("Button", ButtonOrLeverTransform.position, ButtonOrLeverTransform.rotation);
             button = go.GetComponent<ButtonController>();
+        }
+        else
+        {
+            GameObject go = PhotonNetwork.Instantiate("Lever", ButtonOrLeverTransform.position, ButtonOrLeverTransform.rotation);
+            lever = go.GetComponent<LeverController>();
         }
     }
 
@@ -53,7 +50,6 @@ public class CrankPuzzleManager : MonoBehaviourPun
         {
             isFinished = true;
             actionCompleted.Invoke();
-            Debug.Log("L'ENGIME EST RESOLU SUSSY BAKA");
         }
     }
 }
