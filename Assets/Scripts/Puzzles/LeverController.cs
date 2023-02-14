@@ -1,12 +1,9 @@
 using UnityEngine;
 using Photon.Pun;
 using UnityEngine.Events;
-using System.Collections.Generic;
-using System;
 
 public class LeverController : MonoBehaviourPun
 {
-
     [SerializeField]
     private UnityEvent activateObject;
 
@@ -15,67 +12,30 @@ public class LeverController : MonoBehaviourPun
 
     private Animator leverAnimator;
 
-    private bool leverActivated;
+    public bool IsActivated;
 
     [SerializeField]
     LayerMask layerMask;
 
-    //[SerializeField] float maxDistanceRay = 5f;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         leverAnimator = GetComponentInChildren<Animator>();
-        leverActivated = leverAnimator.GetBool("Activate");
+        IsActivated = leverAnimator.GetBool("IsActive");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //Ray MiddleScreenRay = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        //RaycastHit hit;
-        //if (Physics.Raycast(MiddleScreenRay, out hit, maxDistanceRay, layerMask))
-        //{
-        //    print(hit.transform.name);
-        //    if (hit.transform.parent.gameObject == gameObject)
-        //    {
-        //        if (Input.GetKeyDown(KeyCode.E) && !leverAnimator.GetBool("Activate"))
-        //        {
-        //            leverActivated = true;
-        //            leverAnimator.SetBool("Activate", true);
-        //            objectToActivate.SetActive(true);
-        //        }
-        //        else if (Input.GetKeyDown(KeyCode.E) && leverAnimator.GetBool("Activate"))
-        //        {
-        //            leverActivated = false;
-        //            leverAnimator.SetBool("Activate", false);
-        //            objectToActivate.SetActive(false);
-        //        }
-        //    }
-            
-        //}
-    }
     [PunRPC]
     public void Interact()
     {
-            leverActivated = true;
-            leverAnimator.SetBool("Activate", true);
+            IsActivated = true;
+            leverAnimator.SetBool("IsActive", true);
             activateObject.Invoke();
     }
 
     [PunRPC]
     public void NotInteract()
     {
-            leverActivated = false;
-            leverAnimator.SetBool("Activate", false);
+            IsActivated = false;
+            leverAnimator.SetBool("IsActive", false);
             desactivateObject.Invoke();
-    }
-
-    public bool IsActivated
-    {
-        get
-        {
-            return leverActivated;
-        }
     }
 }

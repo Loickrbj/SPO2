@@ -24,13 +24,13 @@ public class CrankPuzzleManager : MonoBehaviourPun
     {
         if (PhotonNetwork.CountOfPlayersInRooms - 1 > 2)
         {
-            GameObject go = PhotonNetwork.Instantiate("Button", ButtonOrLeverTransform.position, ButtonOrLeverTransform.rotation);
-            button = go.GetComponent<ButtonController>();
+            GameObject go = PhotonNetwork.Instantiate("Lever", ButtonOrLeverTransform.position, ButtonOrLeverTransform.rotation);
+            lever = go.GetComponent<LeverController>();
         }
         else
         {
-            GameObject go = PhotonNetwork.Instantiate("Lever", ButtonOrLeverTransform.position, ButtonOrLeverTransform.rotation);
-            lever = go.GetComponent<LeverController>();
+            GameObject go = PhotonNetwork.Instantiate("Button", ButtonOrLeverTransform.position, ButtonOrLeverTransform.rotation);
+            button = go.GetComponent<ButtonController>();
         }
     }
 

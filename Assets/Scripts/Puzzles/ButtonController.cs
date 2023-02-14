@@ -1,7 +1,6 @@
 using UnityEngine;
 using Photon.Pun;
 using UnityEngine.Events;
-using System.Collections.Generic;
 
 public class ButtonController : MonoBehaviourPun
 {
@@ -11,71 +10,33 @@ public class ButtonController : MonoBehaviourPun
     [SerializeField]
     private UnityEvent desactivateObject;
 
-    private Animator leverAnimator;
+    private Animator buttonAnimator;
 
-    private bool leverActivated;
+    public bool IsActivated;
 
     [SerializeField]
     private LayerMask layerMask;
 
-    //[SerializeField] private float maxDistanceRay = 5f;
-
-    // Start is called before the first frame update
     private void Start()
     {
-        leverAnimator = GetComponentInChildren<Animator>();
-        leverActivated = leverAnimator.GetBool("Activate");
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        //Ray MiddleScreenRay = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        //RaycastHit hit;
-        //if (Physics.Raycast(MiddleScreenRay, out hit, maxDistanceRay, layerMask))
-        //{
-        //    print(hit.transform.name);
-        //    if (hit.transform.parent.gameObject == gameObject)
-        //    {
-        //        if (Input.GetKeyDown(KeyCode.E) && !leverAnimator.GetBool("Activate"))
-        //        {
-        //            leverActivated = true;
-        //            leverAnimator.SetBool("Activate", true);
-        //            objectToActivate.SetActive(true);
-        //        }
-        //        else if (Input.GetKeyDown(KeyCode.E) && leverAnimator.GetBool("Activate"))
-        //        {
-        //            leverActivated = false;
-        //            leverAnimator.SetBool("Activate", false);
-        //            objectToActivate.SetActive(false);
-        //        }
-        //    }
-            
-        //}
+        buttonAnimator = GetComponentInChildren<Animator>();
+        IsActivated = buttonAnimator.GetBool("IsActive");
     }
 
     [PunRPC]
     public void Interact()
     {
-        if (!leverAnimator.GetBool("Activate"))
+        if (!buttonAnimator.GetBool("IsActive"))
         {
-            leverActivated = true;
-            leverAnimator.SetBool("Activate", true);
+            IsActivated = true;
+            buttonAnimator.SetBool("IsActive", true);
             activateObject.Invoke();
         }
-        else if (leverAnimator.GetBool("Activate"))
+        else if (buttonAnimator.GetBool("IsActive"))
         {
-            leverActivated = false;
-            leverAnimator.SetBool("Activate", false);
+            IsActivated = false;
+            buttonAnimator.SetBool("IsActive", false);
             desactivateObject.Invoke();
-        }
-    }
-
-    public bool IsActivated
-    {
-        get
-        {
-            return leverActivated;
         }
     }
 }

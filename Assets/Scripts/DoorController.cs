@@ -7,12 +7,12 @@ public class DoorController : MonoBehaviour
 
     public void OpenDoor()
     {
-        GetComponent<Animator>().SetBool("IsOpen", true);
+        GetComponent<Animator>().SetBool("IsActive", true);
     }
 
     public void CloseDoor()
     {
-        GetComponent<Animator>().SetBool("IsOpen", false);
+        GetComponent<Animator>().SetBool("IsActive", false);
     }
 }
 

@@ -92,6 +92,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  IsActivated: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 256
@@ -140,7 +141,7 @@ Animator:
   m_GameObject: {fileID: 2619367301555375314}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4b1b028c7d0e6134997eb13a9bc6780f, type: 2}
+  m_Controller: {fileID: 9100000, guid: f002f89e5be3a9e4fb0b15557d515756, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
