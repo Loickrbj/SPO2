@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SimpleCameraInput))]
-public class FreeCamera : MonoBehaviour
+public class FreeCamera : MonoBehaviourPun
 {
     [Header("FreeCamera Settings")]
     [Tooltip("Acctual camera speed")]
@@ -33,9 +34,16 @@ public class FreeCamera : MonoBehaviour
     private void Start()
     {
         _cameraInput = GetComponent<SimpleCameraInput>();
+
+        if (!photonView.IsMine)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
     }
     private void Update()
     {
+        if (!photonView.IsMine) return;
         CheckKeyboardInput();
 
         if (Input.GetButton("Fire2"))
@@ -52,7 +60,9 @@ public class FreeCamera : MonoBehaviour
     }
     private void LateUpdate()
     {
-        if(_switchOn)
+        if (!photonView.IsMine) return;
+
+        if (_switchOn)
         {
             MouseMovement();
             CameraMovement();
