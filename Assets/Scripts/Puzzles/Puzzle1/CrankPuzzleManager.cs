@@ -22,7 +22,7 @@ public class CrankPuzzleManager : MonoBehaviourPun
 
     public void Initialize()
     {
-        if (PhotonNetwork.CountOfPlayersInRooms - 1 > 2)
+        if (PhotonNetwork.PlayerList.Length - 1 > 2)
         {
             button.gameObject.SetActive(false);
         }

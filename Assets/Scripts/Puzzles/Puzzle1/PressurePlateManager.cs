@@ -29,7 +29,7 @@ public class PressurePlateManager : MonoBehaviourPun
 
     public void InitializePlates()
     {
-        numberOfPlayers = PhotonNetwork.CountOfPlayers - 1;
+        numberOfPlayers = PhotonNetwork.PlayerList.Length - 1;
 
         pressurePlate1.gameObject.SetActive(false);
         pressurePlate2.gameObject.SetActive(false);

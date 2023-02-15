@@ -21,6 +21,7 @@ public class PuzzleManager : MonoBehaviour
         Debug.Assert(events.Length > lastEventIndex, "Event index '" + lastEventIndex + "' doesn't exist");
         if (events.Length > lastEventIndex)
         {
+            Debug.Log("Next event");
             events[lastEventIndex].Invoke();
             lastEventIndex++;
         }
