@@ -64,6 +64,10 @@ public class PressurePlateManager : MonoBehaviourPun
 
     private bool CheckWin()
     {
+        if (numberOfPlayers == 0)
+        {
+            return false;
+        }
         if (numberOfPlayers >= 1)
         {
             if (!pressurePlate1.IsActivated)
