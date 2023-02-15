@@ -10,6 +10,9 @@ public class ButtonController : MonoBehaviourPun
     [SerializeField]
     private UnityEvent desactivateObject;
 
+    [SerializeField]
+    private AudioSource audioSource;
+
     private Animator buttonAnimator;
 
     public bool IsActivated;
@@ -28,12 +31,14 @@ public class ButtonController : MonoBehaviourPun
     {
         if (!buttonAnimator.GetBool("IsActive"))
         {
+            audioSource.Play();
             IsActivated = true;
             buttonAnimator.SetBool("IsActive", true);
             activateObject.Invoke();
         }
         else if (buttonAnimator.GetBool("IsActive"))
         {
+            audioSource.Play();
             IsActivated = false;
             buttonAnimator.SetBool("IsActive", false);
             desactivateObject.Invoke();

@@ -6,13 +6,10 @@ public class VoiceManager : MonoBehaviour
     public static VoiceManager Instance;
 
     public AudioSource VoicelineSource;
-    public AudioSource SoundSource;
 
     public List<AudioClip> MainVoicelines;
     public List<AudioClip> FlavorVoicelines;
     public List<AudioClip> ClueVoicelines;
-
-    public List<AudioClip> Sounds;
 
     private int mainVoicelinesCount = 0;
     private int flavorVoicelinesCount = 0;
@@ -59,15 +56,6 @@ public class VoiceManager : MonoBehaviour
                 Instance.VoicelineSource.Play();
             }
             Instance.clueVoicelinesCount++;
-        }
-    }
-
-    public static void CallSound(int index)
-    {
-        if (index >= 0 && index < Instance.Sounds.Count)
-        {
-            Instance.SoundSource.clip = Instance.Sounds[index];
-            Instance.SoundSource.Play();
         }
     }
 }
