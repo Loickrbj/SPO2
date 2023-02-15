@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,60 +5,69 @@ public class VoiceManager : MonoBehaviour
 {
     public static VoiceManager Instance;
 
+    public AudioSource VoicelineSource;
+    public AudioSource SoundSource;
+
     public List<AudioClip> MainVoicelines;
     public List<AudioClip> FlavorVoicelines;
     public List<AudioClip> ClueVoicelines;
 
-    private AudioSource audioSource;
+    public List<AudioClip> Sounds;
 
     private int mainVoicelinesCount = 0;
     private int flavorVoicelinesCount = 0;
     private int clueVoicelinesCount = 0;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         Instance = this;
-        audioSource = transform.GetComponent<AudioSource>();
     }
 
     public static void CallMainVoiceline(bool skip)
     {
-        if (VoiceManager.Instance.mainVoicelinesCount < VoiceManager.Instance.MainVoicelines.Count)
+        if (Instance.mainVoicelinesCount < Instance.MainVoicelines.Count)
         {
             if (!skip)
             {
-                VoiceManager.Instance.audioSource.clip = VoiceManager.Instance.MainVoicelines[VoiceManager.Instance.mainVoicelinesCount];
-                VoiceManager.Instance.audioSource.Play();
+                Instance.VoicelineSource.clip = Instance.MainVoicelines[Instance.mainVoicelinesCount];
+                Instance.VoicelineSource.Play();
             }
-            ++VoiceManager.Instance.mainVoicelinesCount;
+            Instance.mainVoicelinesCount++;
         }
     }
 
     public static void CallFlavorVoiceline(bool skip)
     {
-        if (VoiceManager.Instance.flavorVoicelinesCount < VoiceManager.Instance.FlavorVoicelines.Count)
+        if (Instance.flavorVoicelinesCount < Instance.FlavorVoicelines.Count)
         {
             if (!skip)
             {
-                VoiceManager.Instance.audioSource.clip = VoiceManager.Instance.FlavorVoicelines[VoiceManager.Instance.flavorVoicelinesCount];
-                VoiceManager.Instance.audioSource.Play();
+                Instance.VoicelineSource.clip = Instance.FlavorVoicelines[Instance.flavorVoicelinesCount];
+                Instance.VoicelineSource.Play();
             }
-            ++VoiceManager.Instance.flavorVoicelinesCount;
+            Instance.flavorVoicelinesCount++;
         }
     }
 
     public static void CallClueVoiceline(bool skip)
     {
-        if (VoiceManager.Instance.clueVoicelinesCount < VoiceManager.Instance.ClueVoicelines.Count)
+        if (Instance.clueVoicelinesCount < Instance.ClueVoicelines.Count)
         {
             if (!skip)
             {
-                VoiceManager.Instance.audioSource.clip = VoiceManager.Instance.ClueVoicelines[VoiceManager.Instance.clueVoicelinesCount];
-                VoiceManager.Instance.audioSource.Play();
+                Instance.VoicelineSource.clip = Instance.ClueVoicelines[Instance.clueVoicelinesCount];
+                Instance.VoicelineSource.Play();
             }
-            ++VoiceManager.Instance.clueVoicelinesCount;
+            Instance.clueVoicelinesCount++;
         }
     }
 
+    public static void CallSound(int index)
+    {
+        if (index >= 0 && index < Instance.Sounds.Count)
+        {
+            Instance.SoundSource.clip = Instance.Sounds[index];
+            Instance.SoundSource.Play();
+        }
+    }
 }
