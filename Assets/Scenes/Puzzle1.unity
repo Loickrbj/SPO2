@@ -1306,7 +1306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3031816701402522434, guid: 22f853d6ab52615458967cff12a7852f, type: 3}
       propertyPath: actionCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3031816701402522434, guid: 22f853d6ab52615458967cff12a7852f, type: 3}
       propertyPath: actionCompleted.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -1315,7 +1315,7 @@ PrefabInstance:
     - target: {fileID: 3031816701402522434, guid: 22f853d6ab52615458967cff12a7852f, type: 3}
       propertyPath: actionCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 550843404}
+      objectReference: {fileID: 1245146734}
     - target: {fileID: 3031816701402522434, guid: 22f853d6ab52615458967cff12a7852f, type: 3}
       propertyPath: actionCompleted.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -1330,7 +1330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3031816701402522434, guid: 22f853d6ab52615458967cff12a7852f, type: 3}
       propertyPath: actionCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CallSound
+      value: PlayNextEvent
       objectReference: {fileID: 0}
     - target: {fileID: 3031816701402522434, guid: 22f853d6ab52615458967cff12a7852f, type: 3}
       propertyPath: actionCompleted.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -1338,7 +1338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3031816701402522434, guid: 22f853d6ab52615458967cff12a7852f, type: 3}
       propertyPath: actionCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: VoiceManager, Assembly-CSharp
+      value: PuzzleManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3031816701402522434, guid: 22f853d6ab52615458967cff12a7852f, type: 3}
       propertyPath: actionCompleted.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName

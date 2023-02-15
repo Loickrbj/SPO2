@@ -34,12 +34,12 @@ public class CrankPuzzleManager : MonoBehaviourPun
 
     private void Update()
     {
-        if (lever != null && lever.IsActivated && crank.IsRotating)
+        if (lever.gameObject.activeInHierarchy && lever.IsActivated && crank.IsRotating)
         {
             isEverythingActivated = true;
         }
 
-        if (button != null && button.IsActivated && crank.IsRotating)
+        if (button.gameObject.activeInHierarchy && button.IsActivated && crank.IsRotating)
         {
             isEverythingActivated = true;
         }
