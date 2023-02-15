@@ -8,6 +8,7 @@ namespace SPO2.Player
     public class PlayerController : MonoBehaviourPun
     {
         [SerializeField] private CharacterController characterController;
+        [SerializeField] private Animator animator;
         [SerializeField] private float speed = 12f;
         [SerializeField] private float gravity = -9.81f;
 
@@ -17,6 +18,7 @@ namespace SPO2.Player
         [SerializeField] private float groundDistance = 0.2f;
         [SerializeField] private LayerMask groundMask;
 
+        private bool isMoving;
         private bool isGrounded;
 
         void Start()
@@ -44,10 +46,22 @@ namespace SPO2.Player
 
             Vector3 move = transform.right * x + transform.forward * z;
 
+            if (move != Vector3.zero)
+            {
+                isMoving = true;
+            }
+            else
+            {
+                isMoving = false;
+            }
+
+            if (isMoving != animator.GetBool("IsWalking"))
+            {
+                animator.SetBool("IsWalking", isMoving);
+            }
+
             characterController.Move(move * speed * Time.deltaTime);
-
             velocity.y += gravity * Time.deltaTime;
-
             characterController.Move(velocity * Time.deltaTime);
         }
     }
