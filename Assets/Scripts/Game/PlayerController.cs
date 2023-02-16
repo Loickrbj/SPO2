@@ -37,7 +37,7 @@ namespace SPO2.Player
                 return;
             }
 
-            photonView.RPC("ChangeColor", RpcTarget.AllBuffered, Random.Range(0, colorList.Count));
+            photonView.RPC("ChangeColor", RpcTarget.AllBuffered, PhotonNetwork.PlayerList.Length - 2);
         }
 
         private void Update()
