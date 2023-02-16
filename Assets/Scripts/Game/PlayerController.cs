@@ -64,24 +64,24 @@ namespace SPO2.Player
                 animator.SetBool("IsWalking", isMoving);
             }
 
-            PlayStepSound();
+            stepTime += Time.deltaTime;
+            if (isMoving && stepTime >= stepMaxTime)
+            {
+                photonView.RPC("PlayStepSound", RpcTarget.All);
+            }
 
             characterController.Move(move * speed * Time.deltaTime);
             velocity.y += gravity * Time.deltaTime;
             characterController.Move(velocity * Time.deltaTime);
         }
 
+        [PunRPC]
         private void PlayStepSound()
         {
-            stepTime += Time.deltaTime;
-
-            if (isMoving && stepTime >= stepMaxTime)
-            {
-                stepTime = 0;
-                int stepIndex = Random.Range(0, stepSounds.Count);
-                stepAudioSource.clip = stepSounds[stepIndex];
-                stepAudioSource.Play();
-            }
+            stepTime = 0;
+            int stepIndex = Random.Range(0, stepSounds.Count);
+            stepAudioSource.clip = stepSounds[stepIndex];
+            stepAudioSource.Play();
         }
     }
 }
