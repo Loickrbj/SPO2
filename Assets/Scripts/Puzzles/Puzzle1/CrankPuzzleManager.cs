@@ -22,26 +22,44 @@ public class CrankPuzzleManager : MonoBehaviourPun
 
     public void Initialize()
     {
-        if (PhotonNetwork.PlayerList.Length - 1 > 2)
+        if (PhotonNetwork.PlayerList.Length - 1 == 2)
         {
-            button.gameObject.SetActive(false);
+            button.gameObject.SetActive(true);
         }
-        else
+        if (PhotonNetwork.PlayerList.Length - 1 == 3)
         {
-            lever.gameObject.SetActive(false);
+            lever.gameObject.SetActive(true);
+        }
+        if (PhotonNetwork.PlayerList.Length - 1 >= 4)
+        {
+            button.gameObject.SetActive(true);
+            lever.gameObject.SetActive(true);
         }
     }
 
     private void Update()
     {
-        if (lever.gameObject.activeInHierarchy && lever.IsActivated && crank.IsRotating)
+        isEverythingActivated = true;
+
+        if (button.gameObject.activeInHierarchy)
         {
-            isEverythingActivated = true;
+            if (!button.IsActivated)
+            {
+                isEverythingActivated = false;
+            }
         }
 
-        if (button.gameObject.activeInHierarchy && button.IsActivated && crank.IsRotating)
+        if (lever.gameObject.activeInHierarchy)
         {
-            isEverythingActivated = true;
+            if (!lever.IsActivated)
+            {
+                isEverythingActivated = false;
+            }
+        }
+
+        if (!crank.IsRotating)
+        {
+            isEverythingActivated = false;
         }
 
         if (isEverythingActivated && !isFinished)

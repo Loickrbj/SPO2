@@ -217,6 +217,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lever
       objectReference: {fileID: 0}
+    - target: {fileID: 8789230568412155807, guid: 64b0e9f01bab0d5438528985110ca73f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64b0e9f01bab0d5438528985110ca73f, type: 3}
 --- !u!114 &8916179913542889432 stripped
@@ -245,6 +249,10 @@ PrefabInstance:
     - target: {fileID: 1713420948614211015, guid: d12d2e5bb7ed2d746bf7d2ba1ed19c7d, type: 3}
       propertyPath: m_Name
       value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 1713420948614211015, guid: d12d2e5bb7ed2d746bf7d2ba1ed19c7d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2057190562522251133, guid: d12d2e5bb7ed2d746bf7d2ba1ed19c7d, type: 3}
       propertyPath: m_RootOrder
