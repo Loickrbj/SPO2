@@ -1,5 +1,4 @@
 using Photon.Pun;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +11,11 @@ namespace SPO2.Player
         [SerializeField] private float speed = 3f;
         [SerializeField] private float gravity = -9.81f;
 
+        [SerializeField] private List<AudioClip> stepSounds;
+        [SerializeField] private AudioSource stepAudioSource;
+        private float stepTime;
+        private float stepMaxTime = 0.5f;
+
         private Vector3 velocity;
 
         [SerializeField] private Transform groundCheck;
@@ -21,7 +25,7 @@ namespace SPO2.Player
         private bool isMoving;
         private bool isGrounded;
 
-        void Start()
+        private void Start()
         {
             if (!photonView.IsMine)
             {
@@ -30,7 +34,7 @@ namespace SPO2.Player
             }
         }
 
-        void Update()
+        private void Update()
         {
             if (!photonView.IsMine) return;
 
@@ -60,9 +64,24 @@ namespace SPO2.Player
                 animator.SetBool("IsWalking", isMoving);
             }
 
+            PlayStepSound();
+
             characterController.Move(move * speed * Time.deltaTime);
             velocity.y += gravity * Time.deltaTime;
             characterController.Move(velocity * Time.deltaTime);
+        }
+
+        private void PlayStepSound()
+        {
+            stepTime += Time.deltaTime;
+
+            if (isMoving && stepTime >= stepMaxTime)
+            {
+                stepTime = 0;
+                int stepIndex = Random.Range(0, stepSounds.Count);
+                stepAudioSource.clip = stepSounds[stepIndex];
+                stepAudioSource.Play();
+            }
         }
     }
 }
