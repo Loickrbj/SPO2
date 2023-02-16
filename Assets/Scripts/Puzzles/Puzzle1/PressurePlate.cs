@@ -3,6 +3,8 @@ using UnityEngine;
 public class PressurePlate : MonoBehaviour
 {
     [SerializeField] private Material referenceMaterial;
+    [SerializeField] private AudioSource onAudioSource;
+    [SerializeField] private AudioSource offAudioSource;
     private MeshRenderer meshRenderer;
     private int playersCount = 0;
     public int NumberOfPlayersRequired = 0;
@@ -19,6 +21,8 @@ public class PressurePlate : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            onAudioSource.Play();
+
             playersCount++;
             CheckCondition();
         }
@@ -28,6 +32,8 @@ public class PressurePlate : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            offAudioSource.Play();
+
             playersCount--;
             CheckCondition();
         }

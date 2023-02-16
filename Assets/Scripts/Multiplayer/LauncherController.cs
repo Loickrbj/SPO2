@@ -19,8 +19,8 @@ public class LauncherController : MonoBehaviourPunCallbacks
     [Space(10)]
     public TextMeshProUGUI textInfo;
     public byte maxPlayerPerRoom = 5;
-    public string gameVersion = "1.0";
-    public string pseudo = "Coquinou";
+    public string gameVersion = "0.1";
+    public string pseudo = "Player";
     public bool isConnecting = false;
     private int SelectedSceneIndex = 1;
 

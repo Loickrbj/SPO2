@@ -51,6 +51,8 @@ MonoBehaviour:
   - CallClueVoicelineRPC
   - CallFlavorVoicelineRPC
   - CallMainVoicelineRPC
+  - PlayStepSound
+  - ChangeColor
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

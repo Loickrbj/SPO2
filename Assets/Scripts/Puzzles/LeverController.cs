@@ -10,6 +10,12 @@ public class LeverController : MonoBehaviourPun
     [SerializeField]
     private UnityEvent desactivateObject;
 
+    [SerializeField]
+    private AudioSource onAudioSource;
+
+    [SerializeField]
+    private AudioSource offAudioSource;
+
     private Animator leverAnimator;
 
     public bool IsActivated;
@@ -26,16 +32,18 @@ public class LeverController : MonoBehaviourPun
     [PunRPC]
     public void Interact()
     {
-            IsActivated = true;
-            leverAnimator.SetBool("IsActive", true);
-            activateObject.Invoke();
+        onAudioSource.Play();
+        IsActivated = true;
+        leverAnimator.SetBool("IsActive", true);
+        activateObject.Invoke();
     }
 
     [PunRPC]
     public void NotInteract()
     {
-            IsActivated = false;
-            leverAnimator.SetBool("IsActive", false);
-            desactivateObject.Invoke();
+        offAudioSource.Play();
+        IsActivated = false;
+        leverAnimator.SetBool("IsActive", false);
+        desactivateObject.Invoke();
     }
 }

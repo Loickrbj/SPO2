@@ -3,16 +3,20 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-    private Animator doorAnimator;
+    [SerializeField] private AudioSource audioSource;
+
+    [SerializeField] private Animator doorAnimator;
 
     public void OpenDoor()
     {
-        GetComponent<Animator>().SetBool("IsActive", true);
+        audioSource.Play();
+        doorAnimator.SetBool("IsActive", true);
     }
 
     public void CloseDoor()
     {
-        GetComponent<Animator>().SetBool("IsActive", false);
+        audioSource.Play();
+        doorAnimator.SetBool("IsActive", false);
     }
 }
 
