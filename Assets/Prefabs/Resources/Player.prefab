@@ -2094,8 +2094,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterController: {fileID: 9061313145334198263}
   animator: {fileID: 4632892254819341376}
-  speed: 3
-  gravity: -9.81
+  colorList:
+  - {r: 0.44591212, g: 1, b: 0, a: 0}
+  - {r: 1, g: 0.20334125, b: 0, a: 0}
+  - {r: 0, g: 0.19907331, b: 1, a: 0}
+  - {r: 1, g: 0.9622972, b: 0, a: 0}
+  - {r: 1, g: 0, b: 0.98310184, a: 0}
+  - {r: 0, g: 1, b: 0.78378844, a: 0}
   stepSounds:
   - {fileID: 8300000, guid: 66febc9e50aee9a4c93868dccd0cb2c0, type: 3}
   - {fileID: 8300000, guid: 64b01c298b61dd44fb5c2a3ec91d36ba, type: 3}

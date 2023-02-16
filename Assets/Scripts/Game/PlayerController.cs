@@ -8,8 +8,12 @@ namespace SPO2.Player
     {
         [SerializeField] private CharacterController characterController;
         [SerializeField] private Animator animator;
-        [SerializeField] private float speed = 3f;
-        [SerializeField] private float gravity = -9.81f;
+
+        [SerializeField] private List<Color> colorList;
+        private Material material;
+
+        private float speed = 3f;
+        private float gravity = -9.81f;
 
         [SerializeField] private List<AudioClip> stepSounds;
         [SerializeField] private AudioSource stepAudioSource;
@@ -32,6 +36,8 @@ namespace SPO2.Player
                 this.enabled = false;
                 return;
             }
+
+            photonView.RPC("ChangeColor", RpcTarget.AllBuffered, Random.Range(0, colorList.Count));
         }
 
         private void Update()
@@ -73,6 +79,20 @@ namespace SPO2.Player
             characterController.Move(move * speed * Time.deltaTime);
             velocity.y += gravity * Time.deltaTime;
             characterController.Move(velocity * Time.deltaTime);
+        }
+
+        [PunRPC]
+        private void ChangeColor(int colorIndex)
+        {
+            if (colorIndex < 0 || colorIndex >= colorList.Count)
+            {
+                return;
+            }
+
+            SkinnedMeshRenderer renderer = GetComponentInChildren<SkinnedMeshRenderer>();
+            material = new Material(renderer.material);
+            renderer.material = material;
+            material.color = colorList[colorIndex];
         }
 
         [PunRPC]
