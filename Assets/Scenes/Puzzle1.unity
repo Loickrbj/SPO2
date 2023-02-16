@@ -187,34 +187,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 69536890587659315, guid: c4b3b0ed7b2302243a9b41fdbb7fdc71, type: 3}
-      propertyPath: sceneViewId
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 279885672675728700, guid: c4b3b0ed7b2302243a9b41fdbb7fdc71, type: 3}
-      propertyPath: sceneViewId
-      value: 23
-      objectReference: {fileID: 0}
-    - target: {fileID: 1213402989385094647, guid: c4b3b0ed7b2302243a9b41fdbb7fdc71, type: 3}
-      propertyPath: sceneViewId
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1800338017793563898, guid: c4b3b0ed7b2302243a9b41fdbb7fdc71, type: 3}
-      propertyPath: sceneViewId
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2126467339027097268, guid: c4b3b0ed7b2302243a9b41fdbb7fdc71, type: 3}
-      propertyPath: sceneViewId
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2356419288361092284, guid: c4b3b0ed7b2302243a9b41fdbb7fdc71, type: 3}
-      propertyPath: sceneViewId
-      value: 19
-      objectReference: {fileID: 0}
-    - target: {fileID: 2474372930640614591, guid: c4b3b0ed7b2302243a9b41fdbb7fdc71, type: 3}
-      propertyPath: sceneViewId
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 3393129405748875906, guid: c4b3b0ed7b2302243a9b41fdbb7fdc71, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -259,149 +231,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4709905366953008034, guid: c4b3b0ed7b2302243a9b41fdbb7fdc71, type: 3}
-      propertyPath: sceneViewId
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5122438553761824339, guid: c4b3b0ed7b2302243a9b41fdbb7fdc71, type: 3}
-      propertyPath: sceneViewId
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 5283359760474962858, guid: c4b3b0ed7b2302243a9b41fdbb7fdc71, type: 3}
-      propertyPath: sceneViewId
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 6717263164005929307, guid: c4b3b0ed7b2302243a9b41fdbb7fdc71, type: 3}
-      propertyPath: sceneViewId
-      value: 21
-      objectReference: {fileID: 0}
-    - target: {fileID: 6932791061208403785, guid: c4b3b0ed7b2302243a9b41fdbb7fdc71, type: 3}
-      propertyPath: sceneViewId
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 7330747623296269103, guid: c4b3b0ed7b2302243a9b41fdbb7fdc71, type: 3}
-      propertyPath: sceneViewId
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7588807764956387527, guid: c4b3b0ed7b2302243a9b41fdbb7fdc71, type: 3}
-      propertyPath: sceneViewId
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 7818642237545206943, guid: c4b3b0ed7b2302243a9b41fdbb7fdc71, type: 3}
-      propertyPath: sceneViewId
-      value: 22
-      objectReference: {fileID: 0}
-    - target: {fileID: 8343937473292461451, guid: c4b3b0ed7b2302243a9b41fdbb7fdc71, type: 3}
-      propertyPath: sceneViewId
-      value: 17
-      objectReference: {fileID: 0}
     - target: {fileID: 9086102941123029912, guid: c4b3b0ed7b2302243a9b41fdbb7fdc71, type: 3}
       propertyPath: m_Name
       value: Laboratory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4b3b0ed7b2302243a9b41fdbb7fdc71, type: 3}
---- !u!1 &106318412 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9086102941123029912, guid: c4b3b0ed7b2302243a9b41fdbb7fdc71, type: 3}
-  m_PrefabInstance: {fileID: 106318411}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &106318413
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 106318412}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a88be8b945acaca40a3a830f39842078, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1001 &266320516
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -667,6 +502,10 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1349794396, guid: 2c4cc1e400a83e94aa8578060c47fa3f, type: 3}
+      propertyPath: OwnershipTransfer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1410833576499722608, guid: 2c4cc1e400a83e94aa8578060c47fa3f, type: 3}
       propertyPath: sceneViewId
       value: 8
@@ -857,7 +696,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1245146735}
   - component: {fileID: 1245146734}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: PuzzleManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -260,7 +260,7 @@ MonoBehaviour:
   isOffline: 0
   autoConnect: 0
   textInfo: {fileID: 705763839}
-  maxPlayerPerRoom: 5
+  maxPlayerPerRoom: 6
   gameVersion: 0.1
   pseudo: Player
   isConnecting: 0

@@ -18,7 +18,7 @@ public class LauncherController : MonoBehaviourPunCallbacks
     public bool autoConnect = true;
     [Space(10)]
     public TextMeshProUGUI textInfo;
-    public byte maxPlayerPerRoom = 5;
+    public byte maxPlayerPerRoom = 6;
     public string gameVersion = "0.1";
     public string pseudo = "Player";
     public bool isConnecting = false;
