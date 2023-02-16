@@ -9,7 +9,7 @@ namespace SPO2.Player
     {
         [SerializeField] private CharacterController characterController;
         [SerializeField] private Animator animator;
-        [SerializeField] private float speed = 12f;
+        [SerializeField] private float speed = 3f;
         [SerializeField] private float gravity = -9.81f;
 
         private Vector3 velocity;
